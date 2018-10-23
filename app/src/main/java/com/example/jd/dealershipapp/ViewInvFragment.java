@@ -12,12 +12,12 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link VisitUsFragment.OnFragmentInteractionListener} interface
+ * {@link ViewInvFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link VisitUsFragment#newInstance} factory method to
+ * Use the {@link ViewInvFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class VisitUsFragment extends Fragment {
+public class ViewInvFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,7 +29,7 @@ public class VisitUsFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public VisitUsFragment() {
+    public ViewInvFragment() {
         // Required empty public constructor
     }
 
@@ -39,11 +39,11 @@ public class VisitUsFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment VisitUsFragment.
+     * @return A new instance of fragment ViewInvFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static VisitUsFragment newInstance(String param1, String param2) {
-        VisitUsFragment fragment = new VisitUsFragment();
+    public static ViewInvFragment newInstance(String param1, String param2) {
+        ViewInvFragment fragment = new ViewInvFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,7 +64,7 @@ public class VisitUsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_visit_us, container, false);
+        return inflater.inflate(R.layout.fragment_search_inv, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

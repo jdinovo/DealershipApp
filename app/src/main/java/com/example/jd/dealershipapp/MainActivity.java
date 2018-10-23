@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
@@ -19,10 +20,9 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         MainFragment.OnFragmentInteractionListener,
-        SearchInvFragment.OnFragmentInteractionListener,
+        ViewInvFragment.OnFragmentInteractionListener,
         BookAppointmentFragment.OnFragmentInteractionListener,
         MeetTheTeamFragment.OnFragmentInteractionListener,
-        VisitUsFragment.OnFragmentInteractionListener,
         CreditsFragment.OnFragmentInteractionListener {
 
     FragmentManager fm;
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity
         fm = getSupportFragmentManager();
         if(savedInstanceState == null) {
             FragmentTransaction transaction = fm.beginTransaction();
-            transaction.replace(R.id.content, new MainFragment());
+            transaction.replace(R.id.content, new MainFragment(), "main");
             transaction.commit();
         }
 
@@ -103,27 +103,52 @@ public class MainActivity extends AppCompatActivity
         FragmentTransaction transaction = fm.beginTransaction();
         //transaction.setCustomAnimations(Insert 2 or 4 animations here);
 
-        if (id == R.id.nav_searchInv) {
-            transaction.replace(R.id.content, new SearchInvFragment());
-            transaction.addToBackStack(null);
-            transaction.commit();
+        if (id == R.id.nav_viewInv) {
+            Fragment selectedFragment = fm.findFragmentByTag("inv");
+
+            if(selectedFragment == null) {
+                transaction.replace(R.id.content, new ViewInvFragment(), "inv");
+                transaction.addToBackStack(null);
+            } else if(!selectedFragment.isVisible()) {
+                transaction.replace(R.id.content, selectedFragment);
+                transaction.addToBackStack(null);
+            }
+
         } else if (id == R.id.nav_bookAppt) {
-            transaction.replace(R.id.content, new BookAppointmentFragment());
-            transaction.addToBackStack(null);
-            transaction.commit();
+            Fragment selectedFragment = fm.findFragmentByTag("appt");
+
+            if(selectedFragment == null) {
+                transaction.replace(R.id.content, new BookAppointmentFragment(), "appt");
+                transaction.addToBackStack(null);
+            } else if(!selectedFragment.isVisible()) {
+                transaction.replace(R.id.content, selectedFragment);
+                transaction.addToBackStack(null);
+            }
         } else if (id == R.id.nav_meetTheTeam) {
-            transaction.replace(R.id.content, new MeetTheTeamFragment());
-            transaction.addToBackStack(null);
-            transaction.commit();
+            Fragment selectedFragment = fm.findFragmentByTag("team");
+
+            if(selectedFragment == null) {
+                transaction.replace(R.id.content, new MeetTheTeamFragment(), "team");
+                transaction.addToBackStack(null);
+            } else if(!selectedFragment.isVisible()) {
+                transaction.replace(R.id.content, selectedFragment);
+                transaction.addToBackStack(null);
+            }
         } else if (id == R.id.nav_visitUs) {
-            transaction.replace(R.id.content, new VisitUsFragment());
-            transaction.addToBackStack(null);
-            transaction.commit();
+
         } else if (id == R.id.nav_credits) {
-            transaction.replace(R.id.content, new CreditsFragment());
-            transaction.addToBackStack(null);
-            transaction.commit();
+            Fragment selectedFragment = fm.findFragmentByTag("credit");
+
+            if(selectedFragment == null) {
+                transaction.replace(R.id.content, new CreditsFragment(), "credit");
+                transaction.addToBackStack(null);
+            } else if(!selectedFragment.isVisible()) {
+                transaction.replace(R.id.content, selectedFragment);
+                transaction.addToBackStack(null);
+            }
         }
+
+        transaction.commit();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
