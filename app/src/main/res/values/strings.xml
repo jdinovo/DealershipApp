@@ -8,12 +8,12 @@
     <string name="action_settings">Settings</string>
 
     <!--activity_main_drawer Strings-->
-    <string name="searchInventoryTitle">Search Inventory</string>
+    <string name="viewInventoryTitle">View Inventory</string>
     <string name="bookAppointmentTitle">Book Appointment</string>
     <string name="meetTheTeamTitle">Meet The Team</string>
     <string name="visitUsTitle">Visit Us</string>
     <string name="creditsTitle">Credits</string>
 
-    <string name="workEmail">wheelerdealer@jcinc.ca</string>
+    <string name="workEmail">info@wheelerdealer.ca</string>
 
 </resources>
