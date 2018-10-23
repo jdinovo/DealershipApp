@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity
         ViewInvFragment.OnFragmentInteractionListener,
         BookAppointmentFragment.OnFragmentInteractionListener,
         MeetTheTeamFragment.OnFragmentInteractionListener,
-        VisitUsFragment.OnFragmentInteractionListener,
         CreditsFragment.OnFragmentInteractionListener {
 
     FragmentManager fm;
@@ -150,7 +149,7 @@ public class MainActivity extends AppCompatActivity
         }
 
         transaction.commit();
-        
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
