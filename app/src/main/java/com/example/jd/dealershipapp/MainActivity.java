@@ -1,8 +1,12 @@
 package com.example.jd.dealershipapp;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,7 +18,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener,
+        MainFragment.OnFragmentInteractionListener,
+        ViewInvFragment.OnFragmentInteractionListener,
+        BookAppointmentFragment.OnFragmentInteractionListener,
+        MeetTheTeamFragment.OnFragmentInteractionListener,
+        CreditsFragment.OnFragmentInteractionListener {
+
+    FragmentManager fm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +34,14 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //Set up the first time we run the application
+        fm = getSupportFragmentManager();
+        if(savedInstanceState == null) {
+            FragmentTransaction transaction = fm.beginTransaction();
+            transaction.replace(R.id.content, new MainFragment(), "main");
+            transaction.commit();
+        }
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,6 +49,7 @@ public class MainActivity extends AppCompatActivity
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
+
         });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -80,22 +100,64 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        FragmentTransaction transaction = fm.beginTransaction();
+        //transaction.setCustomAnimations(Insert 2 or 4 animations here);
 
-        } else if (id == R.id.nav_slideshow) {
+        if (id == R.id.nav_viewInv) {
+            Fragment selectedFragment = fm.findFragmentByTag("inv");
 
-        } else if (id == R.id.nav_manage) {
+            if(selectedFragment == null) {
+                transaction.replace(R.id.content, new ViewInvFragment(), "inv");
+                transaction.addToBackStack(null);
+            } else if(!selectedFragment.isVisible()) {
+                transaction.replace(R.id.content, selectedFragment);
+                transaction.addToBackStack(null);
+            }
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_bookAppt) {
+            Fragment selectedFragment = fm.findFragmentByTag("appt");
 
-        } else if (id == R.id.nav_send) {
+            if(selectedFragment == null) {
+                transaction.replace(R.id.content, new BookAppointmentFragment(), "appt");
+                transaction.addToBackStack(null);
+            } else if(!selectedFragment.isVisible()) {
+                transaction.replace(R.id.content, selectedFragment);
+                transaction.addToBackStack(null);
+            }
+        } else if (id == R.id.nav_meetTheTeam) {
+            Fragment selectedFragment = fm.findFragmentByTag("team");
 
+            if(selectedFragment == null) {
+                transaction.replace(R.id.content, new MeetTheTeamFragment(), "team");
+                transaction.addToBackStack(null);
+            } else if(!selectedFragment.isVisible()) {
+                transaction.replace(R.id.content, selectedFragment);
+                transaction.addToBackStack(null);
+            }
+        } else if (id == R.id.nav_visitUs) {
+
+        } else if (id == R.id.nav_credits) {
+            Fragment selectedFragment = fm.findFragmentByTag("credit");
+
+            if(selectedFragment == null) {
+                transaction.replace(R.id.content, new CreditsFragment(), "credit");
+                transaction.addToBackStack(null);
+            } else if(!selectedFragment.isVisible()) {
+                transaction.replace(R.id.content, selectedFragment);
+                transaction.addToBackStack(null);
+            }
         }
+
+        transaction.commit();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
 }

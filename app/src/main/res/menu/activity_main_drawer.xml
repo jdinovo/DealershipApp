@@ -5,33 +5,30 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:id="@+id/nav_viewInv"
+            android:icon="@drawable/ic_search_inv"
+            android:title="@string/viewInventoryTitle" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/nav_bookAppt"
+            android:icon="@drawable/ic_book_appt"
+            android:title="@string/bookAppointmentTitle" />
+
     </group>
 
     <item android:title="Communicate">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:id="@+id/nav_meetTheTeam"
+                android:icon="@drawable/ic_meet_team"
+                android:title="@string/meetTheTeamTitle" />
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/nav_visitUs"
+                android:icon="@drawable/ic_visit_us"
+                android:title="@string/visitUsTitle" />
+            <item
+                android:id="@+id/nav_credits"
+                android:icon="@drawable/ic_credits"
+                android:title="@string/creditsTitle" />
         </menu>
     </item>
 
