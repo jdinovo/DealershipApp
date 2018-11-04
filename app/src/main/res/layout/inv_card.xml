@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/padding"
+        android:clickable="true"
         card_view:cardCornerRadius="@dimen/card_radius">
 
         <RelativeLayout
