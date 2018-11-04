@@ -6,9 +6,9 @@
               tools:context=".ViewInvFragment" android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="search inv frag"/>
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>
