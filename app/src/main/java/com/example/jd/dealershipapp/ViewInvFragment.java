@@ -76,13 +76,17 @@ public class ViewInvFragment extends Fragment {
         //creating list
         ArrayList<Vehicle> vehicleList = new ArrayList<>();
         ArrayList<Integer> images = new ArrayList<>();
+        images.add(R.drawable.jeep1);
+        images.add(R.drawable.jeep2);
+        images.add(R.drawable.jeep3);
+        vehicleList.add(new Vehicle("Jeep", "Wrangler JK", "2009", "$20,000", "An SUV with 4wd that can go anywhere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc luctus ut turpis quis bibendum. Quisque faucibus convallis mauris quis bibendum. Nunc sed nisi est. Cras posuere nec nisi a vestibulum. In ullamcorper tincidunt lorem et tincidunt. Maecenas at risus eleifend, ultrices ipsum feugiat, vulputate quam. Maecenas dignissim risus ac egestas mollis. Proin sagittis lorem augue, a volutpat tellus dictum quis. Vestibulum non urna id nunc ullamcorper rhoncus. Duis hendrerit dolor euismod dui pulvinar sollicitudin. Stock#: 0001", R.drawable.jeep1, images));
+        images = new ArrayList<>();
         images.add(R.drawable.wheeler_dealer);
         images.add(R.drawable.wheeler_dealer);
         images.add(R.drawable.wheeler_dealer);
-        vehicleList.add(new Vehicle("Jeep", "Wrangler", "$20,000", "An SUV with 4wd that can go anywhere.", R.drawable.wheeler_dealer, images));
-        vehicleList.add(new Vehicle("Ford", "Explorer", "$10,000", "A sporty SUV.", R.drawable.wheeler_dealer, images));
-        vehicleList.add(new Vehicle("GMC", "Sierra 2500HD", "$30,000", "A heavy duty pickup truck.", R.drawable.wheeler_dealer, images));
-        vehicleList.add(new Vehicle("MINI", "Cooper S", "$15,000", "A zippy little car.", R.drawable.wheeler_dealer, images));
+        vehicleList.add(new Vehicle("Ford", "Explorer", "2010", "$10,000", "A sporty SUV. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc luctus ut turpis quis bibendum. Quisque faucibus convallis mauris quis bibendum. Nunc sed nisi est. Cras posuere nec nisi a vestibulum. In ullamcorper tincidunt lorem et tincidunt. Maecenas at risus eleifend, ultrices ipsum feugiat, vulputate quam. Maecenas dignissim risus ac egestas mollis. Proin sagittis lorem augue, a volutpat tellus dictum quis. Vestibulum non urna id nunc ullamcorper rhoncus. Duis hendrerit dolor euismod dui pulvinar sollicitudin. Stock#: 0002", R.drawable.wheeler_dealer, images));
+        vehicleList.add(new Vehicle("GMC", "Sierra 2500HD", "2015", "$30,000", "A heavy duty pickup truck. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc luctus ut turpis quis bibendum. Quisque faucibus convallis mauris quis bibendum. Nunc sed nisi est. Cras posuere nec nisi a vestibulum. In ullamcorper tincidunt lorem et tincidunt. Maecenas at risus eleifend, ultrices ipsum feugiat, vulputate quam. Maecenas dignissim risus ac egestas mollis. Proin sagittis lorem augue, a volutpat tellus dictum quis. Vestibulum non urna id nunc ullamcorper rhoncus. Duis hendrerit dolor euismod dui pulvinar sollicitudin. Stock#: 0003", R.drawable.wheeler_dealer, images));
+        vehicleList.add(new Vehicle("MINI", "Cooper S", "2009", "$15,000", "A zippy little car. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc luctus ut turpis quis bibendum. Quisque faucibus convallis mauris quis bibendum. Nunc sed nisi est. Cras posuere nec nisi a vestibulum. In ullamcorper tincidunt lorem et tincidunt. Maecenas at risus eleifend, ultrices ipsum feugiat, vulputate quam. Maecenas dignissim risus ac egestas mollis. Proin sagittis lorem augue, a volutpat tellus dictum quis. Vestibulum non urna id nunc ullamcorper rhoncus. Duis hendrerit dolor euismod dui pulvinar sollicitudin. Stock#: 0004", R.drawable.wheeler_dealer, images));
 
 
         RecyclerView rec = view.findViewById(R.id.recycle);

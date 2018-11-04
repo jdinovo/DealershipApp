@@ -14,7 +14,4 @@
     <dimen name="brand_font_size">15sp</dimen>
     <dimen name="price_padding_bottom">5dp</dimen>
     <dimen name="price">12dp</dimen>
-    <dimen name="ic_card_overflow_width">20dp</dimen>
-    <dimen name="ic_card_overflow_height">30dp</dimen>
-    <dimen name="ic_card_overflow_margin_top">10dp</dimen>
 </resources>

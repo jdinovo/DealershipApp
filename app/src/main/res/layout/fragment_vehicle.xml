@@ -19,7 +19,8 @@
         <android.support.v4.view.ViewPager
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
-            android:layout_height="250dp">
+            android:layout_height="250dp"
+            android:layout_gravity="center">
 
         </android.support.v4.view.ViewPager>
 
@@ -38,6 +39,15 @@
             android:layout_height="wrap_content"
             android:paddingLeft="@dimen/padding"
             android:text="Model"
+            android:textSize="@dimen/heading_font_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/vehicleYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/padding"
+            android:text="Year"
             android:textSize="@dimen/heading_font_size"
             android:textStyle="bold" />
 

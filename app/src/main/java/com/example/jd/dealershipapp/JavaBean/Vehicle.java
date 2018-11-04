@@ -15,6 +15,7 @@ public class Vehicle {
     private String model;
     private String price;
     private String description;
+    private String year;
     private int thumbnailID;
     private ArrayList<Integer> images;
 
@@ -44,9 +45,10 @@ public class Vehicle {
      * Vehicle Overloaded Constructor
      *
      */
-    public Vehicle(String brand, String model, String price, String description, int thumbnailID, ArrayList<Integer> images) {
+    public Vehicle(String brand, String model, String year, String price, String description, int thumbnailID, ArrayList<Integer> images) {
         this.brand = brand;
         this.model = model;
+        this.year = year;
         this.price = price;
         this.description = description;
         this.thumbnailID = thumbnailID;
@@ -213,5 +215,32 @@ public class Vehicle {
      */
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    /**
+     * @author James DiNovo
+     * @date November 4th, 2018
+     * @version 1.0
+     * @return String
+     *
+     * getter for year
+     *
+     */
+    public String getYear() {
+        return year;
+    }
+
+    /**
+     * @author James DiNovo
+     * @date November 4th, 2018
+     * @version 1.0
+     * @param year a description of the vehicle
+     * @return void
+     *
+     * setter for description
+     *
+     */
+    public void setYear(String year) {
+        this.year = year;
     }
 }

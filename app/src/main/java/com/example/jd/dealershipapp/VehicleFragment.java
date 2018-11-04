@@ -77,17 +77,20 @@ public class VehicleFragment extends Fragment {
         Bundle args = getArguments();
         String brand = args.getString("brand");
         String model = args.getString("model");
+        String year = args.getString("year");
         String price = args.getString("price");
         String desc = args.getString("desc");
         images = args.getIntegerArrayList("images");
 
         TextView brandView = view.findViewById(R.id.vehicleBrand);
         TextView modelView = view.findViewById(R.id.vehicleModel);
+        TextView yearView = view.findViewById(R.id.vehicleYear);
         TextView priceView = view.findViewById(R.id.vehiclePrice);
         TextView descriptionView = view.findViewById(R.id.vehicleDesc);
 
         brandView.setText(brand);
         modelView.setText(model);
+        yearView.setText(year);
         priceView.setText(price);
         descriptionView.setText(desc);
 

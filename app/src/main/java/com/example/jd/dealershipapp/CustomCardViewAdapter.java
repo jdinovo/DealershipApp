@@ -53,6 +53,7 @@ public class CustomCardViewAdapter extends RecyclerView.Adapter {
         final Vehicle vehicle = vehicles.get(i);
         ((CustomViewHolder) holder).brand.setText(vehicle.getBrand());
         ((CustomViewHolder) holder).model.setText(vehicle.getModel());
+        ((CustomViewHolder) holder).year.setText(vehicle.getYear());
         ((CustomViewHolder) holder).price.setText(vehicle.getPrice());
         ((CustomViewHolder) holder).thumbnail.setImageResource(vehicle.getThumbnailID());
         ((CustomViewHolder) holder).card.setOnClickListener(new View.OnClickListener() {
@@ -62,6 +63,7 @@ public class CustomCardViewAdapter extends RecyclerView.Adapter {
                 Bundle args = new Bundle();
                 args.putString("brand", vehicle.getBrand());
                 args.putString("model", vehicle.getModel());
+                args.putString("year", vehicle.getYear());
                 args.putString("price", vehicle.getPrice());
                 args.putString("desc", vehicle.getDescription());
                 args.putIntegerArrayList("images", vehicle.getImages());
@@ -100,6 +102,7 @@ public class CustomCardViewAdapter extends RecyclerView.Adapter {
         protected CardView card;
         protected TextView brand;
         protected TextView model;
+        protected TextView year;
         protected TextView price;
         protected ImageView thumbnail;
 
@@ -116,23 +119,12 @@ public class CustomCardViewAdapter extends RecyclerView.Adapter {
             super(view);
             this.card = view.findViewById(R.id.card_view);
             this.brand = view.findViewById(R.id.brand);
+            this.year = view.findViewById(R.id.year);
             this.model = view.findViewById(R.id.model);
             this.price = view.findViewById(R.id.price);
             this.thumbnail = view.findViewById(R.id.thumbnail);
         }
 
-        /**
-         * @author James DiNovo
-         * @date November 4th, 2018
-         * @version 1.0
-         * @param listener
-         *
-         * Creates a ClickListener for CustomViewHolder
-         *
-         */
-//        public void setOnClickListener(View.OnClickListener listener) {
-//            parent.setOnClickListener(listener);
-//        }
     }
 
 }
