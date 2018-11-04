@@ -4,6 +4,9 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +32,8 @@ public class VehicleFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private CustomAdapter adapter;
+    private ArrayList<Integer> images;
 
     private OnFragmentInteractionListener mListener;
 
@@ -74,7 +79,7 @@ public class VehicleFragment extends Fragment {
         String model = args.getString("model");
         String price = args.getString("price");
         String desc = args.getString("desc");
-        ArrayList<Integer> images = args.getIntegerArrayList("images");
+        images = args.getIntegerArrayList("images");
 
         TextView brandView = view.findViewById(R.id.vehicleBrand);
         TextView modelView = view.findViewById(R.id.vehicleModel);
@@ -85,6 +90,10 @@ public class VehicleFragment extends Fragment {
         modelView.setText(model);
         priceView.setText(price);
         descriptionView.setText(desc);
+
+        adapter = new CustomAdapter(getChildFragmentManager());
+        ViewPager viewPager = view.findViewById(R.id.viewPager);
+        viewPager.setAdapter(adapter);
 
 
         return view;
@@ -127,5 +136,31 @@ public class VehicleFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    public class CustomAdapter extends FragmentPagerAdapter {
+        public CustomAdapter(FragmentManager fm) {
+            super(fm);
+        }
+        @Override
+        public Fragment getItem(int position) {
+            switch (position) {
+                case 0:
+                    return ImagesFragment.newInstance(images.get(0));
+                case 1:
+                    return ImagesFragment.newInstance(images.get(1));
+                case 2:
+                    return ImagesFragment.newInstance(images.get(2));
+
+                default:
+                    return ImagesFragment.newInstance(0);
+
+            }
+        }
+
+        @Override
+        public int getCount() {
+            return 3;
+        }
     }
 }

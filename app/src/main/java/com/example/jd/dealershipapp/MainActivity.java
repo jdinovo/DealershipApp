@@ -26,7 +26,8 @@ public class MainActivity extends AppCompatActivity
         BookAppointmentFragment.OnFragmentInteractionListener,
         MeetTheTeamFragment.OnFragmentInteractionListener,
         CreditsFragment.OnFragmentInteractionListener,
-        VehicleFragment.OnFragmentInteractionListener {
+        VehicleFragment.OnFragmentInteractionListener,
+        ImagesFragment.OnFragmentInteractionListener {
 
     FragmentManager fm;
 

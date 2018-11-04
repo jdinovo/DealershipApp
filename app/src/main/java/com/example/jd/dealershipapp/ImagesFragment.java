@@ -4,39 +4,32 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.example.jd.dealershipapp.JavaBean.Vehicle;
-
-import java.util.ArrayList;
+import android.widget.ImageView;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link ViewInvFragment.OnFragmentInteractionListener} interface
+ * {@link ImagesFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link ViewInvFragment#newInstance} factory method to
+ * Use the {@link ImagesFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ViewInvFragment extends Fragment {
+public class ImagesFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-    RecyclerView list;
+    private int mParam1 = 0;
+
 
     private OnFragmentInteractionListener mListener;
 
-    public ViewInvFragment() {
+    public ImagesFragment() {
         // Required empty public constructor
     }
 
@@ -45,15 +38,13 @@ public class ViewInvFragment extends Fragment {
      * this fragment using the provided parameters.
      *
      * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ViewInvFragment.
+     * @return A new instance of fragment ImagesFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ViewInvFragment newInstance(String param1, String param2) {
-        ViewInvFragment fragment = new ViewInvFragment();
+    public static ImagesFragment newInstance(int param1) {
+        ImagesFragment fragment = new ImagesFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putInt(ARG_PARAM1, param1);
         fragment.setArguments(args);
         return fragment;
     }
@@ -62,8 +53,7 @@ public class ViewInvFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            mParam1 = getArguments().getInt(ARG_PARAM1);
         }
     }
 
@@ -71,29 +61,12 @@ public class ViewInvFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_view_inv, container, false);
+        View view = inflater.inflate(R.layout.fragment_images, container, false);
+        ImageView image = view.findViewById(R.id.viewImage);
 
-        //creating list
-        ArrayList<Vehicle> vehicleList = new ArrayList<>();
-        ArrayList<Integer> images = new ArrayList<>();
-        images.add(R.drawable.wheeler_dealer);
-        images.add(R.drawable.wheeler_dealer);
-        images.add(R.drawable.wheeler_dealer);
-        vehicleList.add(new Vehicle("Jeep", "Wrangler", "$20,000", "An SUV with 4wd that can go anywhere.", R.drawable.wheeler_dealer, images));
-        vehicleList.add(new Vehicle("Ford", "Explorer", "$10,000", "A sporty SUV.", R.drawable.wheeler_dealer, images));
-        vehicleList.add(new Vehicle("GMC", "Sierra 2500HD", "$30,000", "A heavy duty pickup truck.", R.drawable.wheeler_dealer, images));
-        vehicleList.add(new Vehicle("MINI", "Cooper S", "$15,000", "A zippy little car.", R.drawable.wheeler_dealer, images));
-
-
-        RecyclerView rec = view.findViewById(R.id.recycle);
-        rec.setLayoutManager(new LinearLayoutManager(getContext()));
-
-        CustomCardViewAdapter adapter = new CustomCardViewAdapter(vehicleList);
-        rec.setAdapter(adapter);
-
-
-
-
+        if(mParam1 != 0) {
+            image.setImageResource(mParam1);
+        }
         return view;
     }
 
