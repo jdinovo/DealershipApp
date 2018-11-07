@@ -4,9 +4,15 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.jd.dealershipapp.JavaBean.Vehicle;
+
+import java.util.ArrayList;
 
 
 /**
@@ -26,6 +32,7 @@ public class ViewInvFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    RecyclerView list;
 
     private OnFragmentInteractionListener mListener;
 
@@ -64,7 +71,34 @@ public class ViewInvFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search_inv, container, false);
+        View view = inflater.inflate(R.layout.fragment_view_inv, container, false);
+
+        //creating list
+        ArrayList<Vehicle> vehicleList = new ArrayList<>();
+        ArrayList<Integer> images = new ArrayList<>();
+        images.add(R.drawable.jeep1);
+        images.add(R.drawable.jeep2);
+        images.add(R.drawable.jeep3);
+        vehicleList.add(new Vehicle("Jeep", "Wrangler JK", "2009", "$20,000", "An SUV with 4wd that can go anywhere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc luctus ut turpis quis bibendum. Quisque faucibus convallis mauris quis bibendum. Nunc sed nisi est. Cras posuere nec nisi a vestibulum. In ullamcorper tincidunt lorem et tincidunt. Maecenas at risus eleifend, ultrices ipsum feugiat, vulputate quam. Maecenas dignissim risus ac egestas mollis. Proin sagittis lorem augue, a volutpat tellus dictum quis. Vestibulum non urna id nunc ullamcorper rhoncus. Duis hendrerit dolor euismod dui pulvinar sollicitudin. Stock#: 0001", R.drawable.jeep1, images));
+        images = new ArrayList<>();
+        images.add(R.drawable.wheeler_dealer);
+        images.add(R.drawable.wheeler_dealer);
+        images.add(R.drawable.wheeler_dealer);
+        vehicleList.add(new Vehicle("Ford", "Explorer", "2010", "$10,000", "A sporty SUV. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc luctus ut turpis quis bibendum. Quisque faucibus convallis mauris quis bibendum. Nunc sed nisi est. Cras posuere nec nisi a vestibulum. In ullamcorper tincidunt lorem et tincidunt. Maecenas at risus eleifend, ultrices ipsum feugiat, vulputate quam. Maecenas dignissim risus ac egestas mollis. Proin sagittis lorem augue, a volutpat tellus dictum quis. Vestibulum non urna id nunc ullamcorper rhoncus. Duis hendrerit dolor euismod dui pulvinar sollicitudin. Stock#: 0002", R.drawable.wheeler_dealer, images));
+        vehicleList.add(new Vehicle("GMC", "Sierra 2500HD", "2015", "$30,000", "A heavy duty pickup truck. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc luctus ut turpis quis bibendum. Quisque faucibus convallis mauris quis bibendum. Nunc sed nisi est. Cras posuere nec nisi a vestibulum. In ullamcorper tincidunt lorem et tincidunt. Maecenas at risus eleifend, ultrices ipsum feugiat, vulputate quam. Maecenas dignissim risus ac egestas mollis. Proin sagittis lorem augue, a volutpat tellus dictum quis. Vestibulum non urna id nunc ullamcorper rhoncus. Duis hendrerit dolor euismod dui pulvinar sollicitudin. Stock#: 0003", R.drawable.wheeler_dealer, images));
+        vehicleList.add(new Vehicle("MINI", "Cooper S", "2009", "$15,000", "A zippy little car. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc luctus ut turpis quis bibendum. Quisque faucibus convallis mauris quis bibendum. Nunc sed nisi est. Cras posuere nec nisi a vestibulum. In ullamcorper tincidunt lorem et tincidunt. Maecenas at risus eleifend, ultrices ipsum feugiat, vulputate quam. Maecenas dignissim risus ac egestas mollis. Proin sagittis lorem augue, a volutpat tellus dictum quis. Vestibulum non urna id nunc ullamcorper rhoncus. Duis hendrerit dolor euismod dui pulvinar sollicitudin. Stock#: 0004", R.drawable.wheeler_dealer, images));
+
+
+        RecyclerView rec = view.findViewById(R.id.recycle);
+        rec.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        CustomCardViewAdapter adapter = new CustomCardViewAdapter(vehicleList);
+        rec.setAdapter(adapter);
+
+
+
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
