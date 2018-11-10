@@ -27,6 +27,8 @@ import java.util.ArrayList;
  */
 public class CustomCardViewAdapter extends RecyclerView.Adapter {
     private ArrayList<Vehicle> vehicles;
+    private boolean mTwoPane;
+
     /**
      * @author James DiNovo
      * @date November 4th, 2018
@@ -44,6 +46,8 @@ public class CustomCardViewAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder( ViewGroup parent, int i) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.inv_card, null);
+        this.mTwoPane = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_view_inv, null).findViewById(R.id.vehicle_container) != null;
+
         CustomViewHolder viewHolder = new CustomViewHolder(view);
         return viewHolder;
     }
@@ -73,10 +77,15 @@ public class CustomCardViewAdapter extends RecyclerView.Adapter {
                 AppCompatActivity activity = (AppCompatActivity) view.getContext();
                 FragmentManager fm = activity.getSupportFragmentManager();
                 FragmentTransaction transaction = fm.beginTransaction();
-                transaction.replace(R.id.content, vehicleFrag, "vehicle");
-                transaction.addToBackStack(null);
-                transaction.commit();
+                if(mTwoPane) {
+                    transaction.replace(R.id.vehicle_container, vehicleFrag, "vehicle");
+                } else {
+                    transaction.replace(R.id.content, vehicleFrag, "vehicle");
+                    transaction.addToBackStack(null);
+                }
 
+
+                transaction.commit();
             }
         });
     }
@@ -98,7 +107,6 @@ public class CustomCardViewAdapter extends RecyclerView.Adapter {
      *
      */
     class CustomViewHolder extends RecyclerView.ViewHolder {
-
         protected CardView card;
         protected TextView brand;
         protected TextView model;

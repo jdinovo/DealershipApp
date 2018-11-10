@@ -28,6 +28,7 @@ public class ViewInvFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private boolean mTwoPane;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -65,6 +66,7 @@ public class ViewInvFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
@@ -76,10 +78,11 @@ public class ViewInvFragment extends Fragment {
         //creating list
         ArrayList<Vehicle> vehicleList = new ArrayList<>();
         ArrayList<Integer> images = new ArrayList<>();
-        images.add(R.drawable.jeep1);
-        images.add(R.drawable.jeep2);
-        images.add(R.drawable.jeep3);
-        vehicleList.add(new Vehicle("Jeep", "Wrangler JK", "2009", "$20,000", "An SUV with 4wd that can go anywhere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc luctus ut turpis quis bibendum. Quisque faucibus convallis mauris quis bibendum. Nunc sed nisi est. Cras posuere nec nisi a vestibulum. In ullamcorper tincidunt lorem et tincidunt. Maecenas at risus eleifend, ultrices ipsum feugiat, vulputate quam. Maecenas dignissim risus ac egestas mollis. Proin sagittis lorem augue, a volutpat tellus dictum quis. Vestibulum non urna id nunc ullamcorper rhoncus. Duis hendrerit dolor euismod dui pulvinar sollicitudin. Stock#: 0001", R.drawable.jeep1, images));
+        Uri jeep1 = Uri.parse("android.resource://" + getActivity().getPackageName() + "/" + R.raw.jeep1);
+        images.add(R.raw.jeep1);
+        images.add(R.raw.jeep2);
+        images.add(R.raw.jeep3);
+        vehicleList.add(new Vehicle("Jeep", "Wrangler JK", "2009", "$20,000", "An SUV with 4wd that can go anywhere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc luctus ut turpis quis bibendum. Quisque faucibus convallis mauris quis bibendum. Nunc sed nisi est. Cras posuere nec nisi a vestibulum. In ullamcorper tincidunt lorem et tincidunt. Maecenas at risus eleifend, ultrices ipsum feugiat, vulputate quam. Maecenas dignissim risus ac egestas mollis. Proin sagittis lorem augue, a volutpat tellus dictum quis. Vestibulum non urna id nunc ullamcorper rhoncus. Duis hendrerit dolor euismod dui pulvinar sollicitudin. Stock#: 0001", R.raw.jeep1, images));
         images = new ArrayList<>();
         images.add(R.drawable.wheeler_dealer);
         images.add(R.drawable.wheeler_dealer);
