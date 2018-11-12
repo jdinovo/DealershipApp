@@ -19,5 +19,5 @@
         android:adjustViewBounds="true"
         android:cropToPadding="true"
         android:padding="@dimen/padding"
-        android:src="@drawable/wheeler_dealer" />
+        android:src="@drawable/ic_menu_slideshow" />
 </LinearLayout>
