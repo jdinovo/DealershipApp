@@ -24,9 +24,9 @@
                 android:id="@+id/thumbnail"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:clickable="false"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:scaleType="fitXY"
+                android:clickable="false"
+                android:scaleType="centerCrop"
                 app:srcCompat="@drawable/ic_launcher_background" />
 
             <TextView
@@ -34,9 +34,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:background="@color/colorPrimary"
+                android:background="@color/color_card"
                 android:padding="@dimen/card_brand_padding"
                 android:text="brand"
+                android:textColor="@android:color/black"
                 android:textSize="@dimen/brand_font_size"
                 android:textStyle="bold" />
 
@@ -46,9 +47,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/thumbnail"
                 android:layout_alignParentStart="true"
-                android:background="@color/colorPrimary"
+                android:background="@color/color_card"
                 android:padding="@dimen/card_brand_padding"
                 android:text="model"
+                android:textColor="@android:color/black"
                 android:textSize="@dimen/brand_font_size"
                 android:textStyle="bold" />
 
@@ -58,10 +60,11 @@
                 android:layout_height="wrap_content"
                 android:layout_alignTop="@+id/thumbnail"
                 android:layout_alignParentEnd="true"
-                android:background="@color/colorPrimary"
+                android:background="@color/color_card"
                 android:gravity="center"
                 android:padding="@dimen/padding"
                 android:text="year"
+                android:textColor="@android:color/black"
                 android:textSize="@dimen/brand_font_size"
                 android:textStyle="bold" />
 
@@ -73,9 +76,10 @@
                 android:layout_alignBottom="@+id/thumbnail"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="false"
-                android:background="@color/colorPrimary"
+                android:background="@color/color_card"
                 android:padding="@dimen/card_brand_padding"
                 android:text="$9999"
+                android:textColor="@android:color/black"
                 android:textSize="@dimen/brand_font_size"
                 android:textStyle="bold" />
 
