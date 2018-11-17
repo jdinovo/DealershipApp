@@ -17,13 +17,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.jd.dealershipapp.JavaBean.Vehicle;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         MainFragment.OnFragmentInteractionListener,
         ViewInvFragment.OnFragmentInteractionListener,
         BookAppointmentFragment.OnFragmentInteractionListener,
         MeetTheTeamFragment.OnFragmentInteractionListener,
-        CreditsFragment.OnFragmentInteractionListener {
+        CreditsFragment.OnFragmentInteractionListener,
+        VehicleFragment.OnFragmentInteractionListener,
+        ImagesFragment.OnFragmentInteractionListener {
 
     FragmentManager fm;
 

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".VehicleFragment">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".VehicleFragment">
+
+        <!-- TODO: Update blank fragment layout -->
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_gravity="center">
+
+        </android.support.v4.view.ViewPager>
+
+        <TextView
+            android:id="@+id/vehicleBrand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/padding"
+            android:text="Brand"
+            android:textSize="@dimen/heading_font_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/vehicleModel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/padding"
+            android:text="Model"
+            android:textSize="@dimen/heading_font_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/vehicleYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/padding"
+            android:text="Year"
+            android:textSize="@dimen/heading_font_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/vehiclePrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/padding"
+            android:text="Price"
+            android:textSize="@dimen/heading_font_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/vehicleDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding"
+            android:text="Description"
+            android:textSize="@dimen/body_font_size" />
+
+    </LinearLayout>
+</ScrollView>

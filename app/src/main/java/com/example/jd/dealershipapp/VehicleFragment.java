@@ -4,12 +4,13 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.example.jd.dealershipapp.JavaBean.Employee;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -17,12 +18,12 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link MeetTheTeamFragment.OnFragmentInteractionListener} interface
+ * {@link VehicleFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link MeetTheTeamFragment#newInstance} factory method to
+ * Use the {@link VehicleFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MeetTheTeamFragment extends Fragment {
+public class VehicleFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -31,11 +32,12 @@ public class MeetTheTeamFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    ArrayList<Employee> employees;
+    private CustomAdapter adapter;
+    private ArrayList<Integer> images;
 
     private OnFragmentInteractionListener mListener;
 
-    public MeetTheTeamFragment() {
+    public VehicleFragment() {
         // Required empty public constructor
     }
 
@@ -45,11 +47,11 @@ public class MeetTheTeamFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment MeetTheTeamFragment.
+     * @return A new instance of fragment VehicleFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static MeetTheTeamFragment newInstance(String param1, String param2) {
-        MeetTheTeamFragment fragment = new MeetTheTeamFragment();
+    public static VehicleFragment newInstance(String param1, String param2) {
+        VehicleFragment fragment = new VehicleFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -70,28 +72,33 @@ public class MeetTheTeamFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_meet_the_team, container, false);
+        View view = inflater.inflate(R.layout.fragment_vehicle, container, false);
 
-        //creating list
-        ArrayList<Employee> personList = new ArrayList<>();
-        ArrayList<Integer> imagesOfEmployees = new ArrayList<>();
-        imagesOfEmployees.add(R.drawable.pic1);
-        imagesOfEmployees.add(R.drawable.pic2);
-        imagesOfEmployees.add(R.drawable.pic3);
+        Bundle args = getArguments();
+        String brand = args.getString("brand");
+        String model = args.getString("model");
+        String year = args.getString("year");
+        String price = args.getString("price");
+        String desc = args.getString("desc");
+        images = args.getIntegerArrayList("images");
 
-        String[] rebeccaEmail = {"rebecca@wheelerdealer.ca"};
-        String[] jakeEmail = {"jake@wheelerdealer.ca"};
-        String[] melanieEmail = {"melanie@wheelerdealer.ca"};
+        TextView brandView = view.findViewById(R.id.vehicleBrand);
+        TextView modelView = view.findViewById(R.id.vehicleModel);
+        TextView yearView = view.findViewById(R.id.vehicleYear);
+        TextView priceView = view.findViewById(R.id.vehiclePrice);
+        TextView descriptionView = view.findViewById(R.id.vehicleDesc);
 
-        personList.add(new Employee("Rebecca", "Receptionist", R.drawable.pic1, rebeccaEmail));
-        personList.add(new Employee("Jake", "Mechanic", R.drawable.pic2, jakeEmail));
-        personList.add(new Employee("Melanie", "Sales Representative", R.drawable.pic3, melanieEmail));
+        brandView.setText(brand);
+        modelView.setText(model);
+        yearView.setText(year);
+        priceView.setText(price);
+        descriptionView.setText(desc);
 
-        RecyclerView recyclerView = view.findViewById(R.id.recycle_view_employee);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        adapter = new CustomAdapter(getChildFragmentManager());
+        ViewPager viewPager = view.findViewById(R.id.viewPager);
+        viewPager.setAdapter(adapter);
 
-        EmployeeCustomRecycleViewAdapter adapter = new EmployeeCustomRecycleViewAdapter(personList);
-        recyclerView.setAdapter(adapter);
+
         return view;
     }
 
@@ -132,5 +139,31 @@ public class MeetTheTeamFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    public class CustomAdapter extends FragmentPagerAdapter {
+        public CustomAdapter(FragmentManager fm) {
+            super(fm);
+        }
+        @Override
+        public Fragment getItem(int position) {
+            switch (position) {
+                case 0:
+                    return ImagesFragment.newInstance(images.get(0));
+                case 1:
+                    return ImagesFragment.newInstance(images.get(1));
+                case 2:
+                    return ImagesFragment.newInstance(images.get(2));
+
+                default:
+                    return ImagesFragment.newInstance(0);
+
+            }
+        }
+
+        @Override
+        public int getCount() {
+            return 3;
+        }
     }
 }
