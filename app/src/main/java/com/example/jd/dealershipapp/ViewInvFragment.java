@@ -98,9 +98,6 @@ public class ViewInvFragment extends Fragment {
         CustomCardViewAdapter adapter = new CustomCardViewAdapter(vehicleList);
         rec.setAdapter(adapter);
 
-
-
-
         return view;
     }
 

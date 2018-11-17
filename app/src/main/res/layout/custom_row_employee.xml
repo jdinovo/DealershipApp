@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             android:orientation="horizontal"
+                                             android:layout_weight="1"
+                                             tools:layout_editor_absoluteY="81dp">
+
+
+    <ImageView
+            app:srcCompat="@drawable/pic1" android:id="@+id/employeeImage"
+            android:cropToPadding="false"
+            tools:ignore="MissingConstraints"
+            android:adjustViewBounds="true"
+            android:layout_height="159dp"
+            android:layout_width="212dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintVertical_bias="0.0" app:layout_constraintHorizontal_bias="0.0"/>
+
+    <TextView
+            android:text="Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/employeeName"
+            android:textStyle="bold"
+            android:textSize="18sp" tools:ignore="MissingConstraints"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toEndOf="@+id/employeeImage"
+            android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/employeeJobTitle"/>
+
+    <TextView
+            android:text="Job Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/employeeJobTitle"
+            android:textAlignment="center" android:textStyle="bold"
+            android:textSize="18sp" tools:ignore="MissingConstraints"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/employeeName" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toEndOf="@+id/employeeImage"
+            android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/employeeEmail"/>
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:srcCompat="@drawable/ic_email_black_24dp"
+            android:id="@+id/employeeEmail"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/employeeJobTitle" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toEndOf="@+id/employeeImage"
+            android:layout_marginStart="8dp" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="8dp" android:adjustViewBounds="true"/>
+</android.support.constraint.ConstraintLayout>
