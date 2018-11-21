@@ -16,9 +16,56 @@
 
     <string name="workEmail">info@wheelerdealer.ca</string>
 
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="first_name">First Name</string>
+    <string name="first_name_hint">Please enter your first name</string>
+    <string name="last_name">Last Name</string>
+    <string name="last_name_hint">Please enter your last name</string>
+    <string name="email">Email Address</string>'
+    <string name="email_hint">example@company.com</string>
+    <string name="phone">Phone Number</string>
+    <string name="phone_hint">(555)555\-5555</string>
+    <string name="next_button">Next</string>
+    <string name="back_button">Back</string>
+    <string name="contact_info_header">Contact Information</string>
+
+    <string name="vehicle_info_header">Vehicle Information</string>
+    <string name="brandText">Brand</string>
+    <string name="modelText">Model</string>
+    <string name="vinText">VIN Number</string>
+    <string name="kmText">Kilometers</string>
+
     <string name="title_vehicle_list">Vehicles</string>
     <string name="title_vehicle_detail">Vehicle Detail</string>
+
+    <string name="submit_button">Submit</string>
+    <string name="issueInfoHeader">Appointment</string>
+
+    <string-array name="brand_array">
+        <item>Brand</item>
+        <item>BMW</item>
+        <item>Mercedes</item>
+        <item>Jeep</item>
+        <item>Ford</item>
+        <item>GMC</item>
+        <item>Chevrolet</item>
+        <item>RAM</item>
+        <item>Toyota</item>
+    </string-array>
+    <string-array name="model_blank_array">
+        <item>Model</item>
+    </string-array>
+    <string-array name="bmw_model_array">
+        <item>Model</item>
+        <item>2 series</item>
+        <item>3 series</item>
+        <item>X series</item>
+    </string-array>
+    <string-array name="jeep_model_array">
+        <item>Model</item>
+        <item>Wrangler JK</item>
+        <item>Grand Cherokee</item>
+        <item>Gladiator</item>
+    </string-array>
+
 
 </resources>

@@ -1,33 +1,29 @@
 package com.example.jd.dealershipapp;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-
-import java.util.regex.*;
+import android.widget.Spinner;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link BookAppointmentFragment.OnFragmentInteractionListener} interface
+ * {@link VehicleInformationFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link BookAppointmentFragment#newInstance} factory method to
+ * Use the {@link VehicleInformationFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class BookAppointmentFragment extends Fragment {
+public class VehicleInformationFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -39,17 +35,9 @@ public class BookAppointmentFragment extends Fragment {
 
     FragmentManager fm;
 
-    EditText email;
-    EditText phone;
-    TextView emailTitle;
-    TextView phoneTitle;
-    Pattern emailPattern = Pattern.compile("^[\\w!#$%&’*+/=?`{|}~^-]+(?:\\.[\\w!#$%&’*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$");
-    Pattern phonePattern1 = Pattern.compile("\\(\\d{3}\\)\\d{3}-?\\d{4}");
-    Pattern phonePattern2 = Pattern.compile("\\d{10}");
-
     private OnFragmentInteractionListener mListener;
 
-    public BookAppointmentFragment() {
+    public VehicleInformationFragment() {
         // Required empty public constructor
     }
 
@@ -59,11 +47,11 @@ public class BookAppointmentFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment BookAppointmentFragment.
+     * @return A new instance of fragment VehicleInformationFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static BookAppointmentFragment newInstance(String param1, String param2) {
-        BookAppointmentFragment fragment = new BookAppointmentFragment();
+    public static VehicleInformationFragment newInstance(String param1, String param2) {
+        VehicleInformationFragment fragment = new VehicleInformationFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -84,72 +72,60 @@ public class BookAppointmentFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_book_appointment, container, false);
+        View view = inflater.inflate(R.layout.fragment_vehicle_information, container, false);
+
         fm = getActivity().getSupportFragmentManager();
 
-        EditText fName = view.findViewById(R.id.fName);
-        EditText lName = view.findViewById(R.id.lName);
-        email = view.findViewById(R.id.email);
-        phone = view.findViewById(R.id.phone);
-        emailTitle = view.findViewById(R.id.emailTitle);
-        phoneTitle = view.findViewById(R.id.phoneTitle);
+        final Spinner brandSpinner = view.findViewById(R.id.brandSpinner);
+        final Spinner modelSpinner = view.findViewById(R.id.modelSpinner);
 
-        phone.addTextChangedListener(new TextWatcher() {
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> brandAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.brand_array, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        brandAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        brandSpinner.setAdapter(brandAdapter);
+
+        brandSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                if(!phonePattern1.matcher(phone.getText()).find() && !phonePattern2.matcher(phone.getText()).find()) {
-                    phone.setTextColor(Color.RED);
-                    phoneTitle.setTextColor(Color.RED);
-                    phoneTitle.setText("Must follow (555)555-5555 or 1234567890");
-                } else {
-                    phone.setTextColor(Color.BLACK);
-                    phoneTitle.setTextColor(Color.BLACK);
-                    phoneTitle.setText("Phone Number");
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if(view != null) {
+                    if (adapterView.getItemAtPosition(i).toString().equals("BMW")) {
+                        ArrayAdapter<CharSequence> modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.bmw_model_array, android.R.layout.simple_spinner_item);
+                        modelAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        modelSpinner.setAdapter(modelAdapter);
+                    } else if (adapterView.getItemAtPosition(i).toString().equals("Jeep")) {
+                        ArrayAdapter<CharSequence> modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.jeep_model_array, android.R.layout.simple_spinner_item);
+                        modelAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        modelSpinner.setAdapter(modelAdapter);
+                    } else {
+                        ArrayAdapter<CharSequence> modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.model_blank_array, android.R.layout.simple_spinner_item);
+                        modelAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        modelSpinner.setAdapter(modelAdapter);
+                    }
                 }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
         });
 
-        email.addTextChangedListener(new TextWatcher() {
+        Button backButton = view.findViewById(R.id.backButtonVehicle);
+        backButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                if(!emailPattern.matcher(email.getText()).find()) {
-                    email.setTextColor(Color.RED);
-                    emailTitle.setTextColor(Color.RED);
-                    emailTitle.setText("Must follow name@website.com");
-                } else {
-                    email.setTextColor(Color.BLACK);
-                    emailTitle.setTextColor(Color.BLACK);
-                    emailTitle.setText("Email Address");
-                }
+            public void onClick(View view) {
+                getFragmentManager().popBackStackImmediate();
             }
         });
 
-        Button nextButton = view.findViewById(R.id.nextButtonContact);
+        Button nextButton = view.findViewById(R.id.nextButtonVehicle);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = fm.beginTransaction();
-                transaction.replace(R.id.content, new VehicleInformationFragment());
+                transaction.replace(R.id.content, new IssueInformationFragment());
                 transaction.addToBackStack(null);
                 transaction.commit();
             }
@@ -196,5 +172,4 @@ public class BookAppointmentFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
-
 }
