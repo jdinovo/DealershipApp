@@ -18,12 +18,22 @@
 
     <string name="first_name">First Name</string>
     <string name="first_name_hint">Please enter your first name</string>
+    <string name="first_name_blank">First Name cannot be left blank</string>
+
     <string name="last_name">Last Name</string>
     <string name="last_name_hint">Please enter your last name</string>
+    <string name="last_name_blank">Last Name cannot be left blank</string>
+
     <string name="email">Email Address</string>'
     <string name="email_hint">example@company.com</string>
+    <string name="email_waring">Must follow name@website.com</string>
+    <string name="email_blank">Email Address cannot be left blank</string>
+
     <string name="phone">Phone Number</string>
     <string name="phone_hint">(555)555\-5555</string>
+    <string name="phone_warning">Must follow (555)555\-5555 or 1234567890</string>
+    <string name="phone_blank">Phone Number cannot be left blank</string>
+
     <string name="next_button">Next</string>
     <string name="back_button">Back</string>
     <string name="contact_info_header">Contact Information</string>
@@ -32,7 +42,9 @@
     <string name="brandText">Brand</string>
     <string name="modelText">Model</string>
     <string name="vinText">VIN Number</string>
+    <string name="vin_blank">VIN Number cannot be left blank</string>
     <string name="kmText">Kilometers</string>
+    <string name="km_blank">Kilometers cannot be left blank</string>
 
     <string name="title_vehicle_list">Vehicles</string>
     <string name="title_vehicle_detail">Vehicle Detail</string>
@@ -58,14 +70,50 @@
         <item>Model</item>
         <item>2 series</item>
         <item>3 series</item>
-        <item>X series</item>
+        <item>5 series</item>
+        <item>6 series</item>
+        <item>7 series</item>
+        <item>X3</item>
+        <item>X5</item>
     </string-array>
     <string-array name="jeep_model_array">
         <item>Model</item>
         <item>Wrangler JK</item>
         <item>Grand Cherokee</item>
         <item>Gladiator</item>
+        <item>Compass</item>
+        <item>Cherokee</item>
     </string-array>
 
+    <!--VEHICLE INVENTORY INFO-->
+    <string name="brand1">Jeep</string>
+    <string name="model1">Wrangler</string>
+    <string name="year1">2009</string>
+    <string name="price1">$20,000</string>
+    <string name="description1">An SUV with 4wd that can go anywhere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc luctus ut turpis quis bibendum. Quisque faucibus convallis mauris quis bibendum. Nunc sed nisi est. Cras posuere nec nisi a vestibulum. In ullamcorper tincidunt lorem et tincidunt. Maecenas at risus eleifend, ultrices ipsum feugiat, vulputate quam. Maecenas dignissim risus ac egestas mollis. Proin sagittis lorem augue, a volutpat tellus dictum quis. Vestibulum non urna id nunc ullamcorper rhoncus. Duis hendrerit dolor euismod dui pulvinar sollicitudin. Stock#: 0001</string>
+
+    <string name="brand2">Ford</string>
+    <string name="model2">Escape</string>
+    <string name="year2">2014</string>
+    <string name="price2">$15,000</string>
+    <string name="description2">A sporty SUV. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc luctus ut turpis quis bibendum. Quisque faucibus convallis mauris quis bibendum. Nunc sed nisi est. Cras posuere nec nisi a vestibulum. In ullamcorper tincidunt lorem et tincidunt. Maecenas at risus eleifend, ultrices ipsum feugiat, vulputate quam. Maecenas dignissim risus ac egestas mollis. Proin sagittis lorem augue, a volutpat tellus dictum quis. Vestibulum non urna id nunc ullamcorper rhoncus. Duis hendrerit dolor euismod dui pulvinar sollicitudin. Stock#: 0002</string>
+
+    <string name="brand3">GMC</string>
+    <string name="model3">Sierra 2500HD</string>
+    <string name="year3">2015</string>
+    <string name="price3">$30,000</string>
+    <string name="description3">A heavy duty pickup truck. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc luctus ut turpis quis bibendum. Quisque faucibus convallis mauris quis bibendum. Nunc sed nisi est. Cras posuere nec nisi a vestibulum. In ullamcorper tincidunt lorem et tincidunt. Maecenas at risus eleifend, ultrices ipsum feugiat, vulputate quam. Maecenas dignissim risus ac egestas mollis. Proin sagittis lorem augue, a volutpat tellus dictum quis. Vestibulum non urna id nunc ullamcorper rhoncus. Duis hendrerit dolor euismod dui pulvinar sollicitudin. Stock#: 0003</string>
+
+    <string name="brand4">MINI</string>
+    <string name="model4">Cooper S</string>
+    <string name="year4">2010</string>
+    <string name="price4">$10,000</string>
+    <string name="description4">A zippy little car. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc luctus ut turpis quis bibendum. Quisque faucibus convallis mauris quis bibendum. Nunc sed nisi est. Cras posuere nec nisi a vestibulum. In ullamcorper tincidunt lorem et tincidunt. Maecenas at risus eleifend, ultrices ipsum feugiat, vulputate quam. Maecenas dignissim risus ac egestas mollis. Proin sagittis lorem augue, a volutpat tellus dictum quis. Vestibulum non urna id nunc ullamcorper rhoncus. Duis hendrerit dolor euismod dui pulvinar sollicitudin. Stock#: 0004</string>
+
+    <string name="brand5">Jeep</string>
+    <string name="model5">Wrangler</string>
+    <string name="year5">2009</string>
+    <string name="price5">$20,000</string>
+    <string name="description5"></string>
 
 </resources>

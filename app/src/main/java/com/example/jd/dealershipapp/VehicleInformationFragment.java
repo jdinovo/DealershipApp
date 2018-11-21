@@ -1,18 +1,23 @@
 package com.example.jd.dealershipapp;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 
 /**
@@ -78,6 +83,10 @@ public class VehicleInformationFragment extends Fragment {
 
         final Spinner brandSpinner = view.findViewById(R.id.brandSpinner);
         final Spinner modelSpinner = view.findViewById(R.id.modelSpinner);
+        final EditText vinNum = view.findViewById(R.id.vinInput);
+        final TextView vinTitle = view.findViewById(R.id.vinNumTitle);
+        final EditText km = view.findViewById(R.id.kmInput);
+        final TextView kmTitle = view.findViewById(R.id.kmTitle);
 
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> brandAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.brand_array, android.R.layout.simple_spinner_item);
@@ -90,6 +99,9 @@ public class VehicleInformationFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if(view != null) {
+                    if(!brandSpinner.getSelectedItem().toString().equals("Brand")) {
+                        brandSpinner.setBackgroundColor(Color.TRANSPARENT);
+                    }
                     if (adapterView.getItemAtPosition(i).toString().equals("BMW")) {
                         ArrayAdapter<CharSequence> modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.bmw_model_array, android.R.layout.simple_spinner_item);
                         modelAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -112,6 +124,56 @@ public class VehicleInformationFragment extends Fragment {
             }
         });
 
+        modelSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if(!modelSpinner.getSelectedItem().toString().equals("Model")) {
+                    modelSpinner.setBackgroundColor(Color.TRANSPARENT);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        vinNum.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                vinTitle.setText(R.string.vinText);
+                vinTitle.setTextColor(Color.BLACK);
+            }
+        });
+
+        km.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                kmTitle.setText(R.string.kmText);
+                kmTitle.setTextColor(Color.BLACK);
+            }
+        });
+
         Button backButton = view.findViewById(R.id.backButtonVehicle);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,10 +186,29 @@ public class VehicleInformationFragment extends Fragment {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentTransaction transaction = fm.beginTransaction();
-                transaction.replace(R.id.content, new IssueInformationFragment());
-                transaction.addToBackStack(null);
-                transaction.commit();
+
+                if(brandSpinner.getSelectedItem().toString().equals("Brand")) {
+                    brandSpinner.setBackgroundColor(Color.RED);
+                }
+                if(modelSpinner.getSelectedItem().toString().equals("Model")) {
+                    modelSpinner.setBackgroundColor(Color.RED);
+                }
+                if(vinNum.getText().toString().trim().isEmpty()) {
+                    vinTitle.setTextColor(Color.RED);
+                    vinTitle.setText(R.string.vin_blank);
+                }
+                if(km.getText().toString().trim().isEmpty()) {
+                    kmTitle.setTextColor(Color.RED);
+                    kmTitle.setText(R.string.km_blank);
+                }
+
+
+                if(!(brandSpinner.getSelectedItem().toString() == "Brand") && !(modelSpinner.getSelectedItem().toString() == "Model") && !vinNum.getText().toString().trim().isEmpty() && !km.getText().toString().trim().isEmpty()) {
+                    FragmentTransaction transaction = fm.beginTransaction();
+                    transaction.replace(R.id.content, new IssueInformationFragment());
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                }
             }
         });
 

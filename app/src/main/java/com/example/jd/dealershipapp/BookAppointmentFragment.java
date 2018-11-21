@@ -87,12 +87,51 @@ public class BookAppointmentFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_book_appointment, container, false);
         fm = getActivity().getSupportFragmentManager();
 
-        EditText fName = view.findViewById(R.id.fName);
-        EditText lName = view.findViewById(R.id.lName);
+        final EditText fName = view.findViewById(R.id.fName);
+        final EditText lName = view.findViewById(R.id.lName);
+        final TextView lNameTitle = view.findViewById(R.id.lNameTitle);
+        final TextView fNameTitle = view.findViewById(R.id.fNameTitle);
+
         email = view.findViewById(R.id.email);
         phone = view.findViewById(R.id.phone);
         emailTitle = view.findViewById(R.id.emailTitle);
         phoneTitle = view.findViewById(R.id.phoneTitle);
+
+        fName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                fNameTitle.setText(R.string.first_name);
+                fNameTitle.setTextColor(Color.BLACK);
+            }
+        });
+
+        lName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                lNameTitle.setText(R.string.last_name);
+                lNameTitle.setTextColor(Color.BLACK);
+            }
+        });
 
         phone.addTextChangedListener(new TextWatcher() {
             @Override
@@ -110,11 +149,11 @@ public class BookAppointmentFragment extends Fragment {
                 if(!phonePattern1.matcher(phone.getText()).find() && !phonePattern2.matcher(phone.getText()).find()) {
                     phone.setTextColor(Color.RED);
                     phoneTitle.setTextColor(Color.RED);
-                    phoneTitle.setText("Must follow (555)555-5555 or 1234567890");
+                    phoneTitle.setText(R.string.phone_warning);
                 } else {
                     phone.setTextColor(Color.BLACK);
                     phoneTitle.setTextColor(Color.BLACK);
-                    phoneTitle.setText("Phone Number");
+                    phoneTitle.setText(R.string.phone);
                 }
             }
         });
@@ -135,11 +174,11 @@ public class BookAppointmentFragment extends Fragment {
                 if(!emailPattern.matcher(email.getText()).find()) {
                     email.setTextColor(Color.RED);
                     emailTitle.setTextColor(Color.RED);
-                    emailTitle.setText("Must follow name@website.com");
+                    emailTitle.setText(R.string.email_waring);
                 } else {
                     email.setTextColor(Color.BLACK);
                     emailTitle.setTextColor(Color.BLACK);
-                    emailTitle.setText("Email Address");
+                    emailTitle.setText(R.string.email);
                 }
             }
         });
@@ -148,10 +187,31 @@ public class BookAppointmentFragment extends Fragment {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentTransaction transaction = fm.beginTransaction();
-                transaction.replace(R.id.content, new VehicleInformationFragment());
-                transaction.addToBackStack(null);
-                transaction.commit();
+
+                if(fName.getText().toString().trim().isEmpty()) {
+                    fNameTitle.setText(R.string.first_name_blank);
+                    fNameTitle.setTextColor(Color.RED);
+                }
+                if(lName.getText().toString().trim().isEmpty()) {
+                    lNameTitle.setText(R.string.last_name_blank);
+                    lNameTitle.setTextColor(Color.RED);
+                }
+                if(email.getText().toString().trim().isEmpty()) {
+                    emailTitle.setText(R.string.email_blank);
+                    emailTitle.setTextColor(Color.RED);
+                }
+                if(phone.getText().toString().trim().isEmpty()) {
+                    phoneTitle.setText(R.string.phone_blank);
+                    phoneTitle.setTextColor(Color.RED);
+                }
+
+
+                if(!fName.getText().toString().trim().isEmpty() && !lName.getText().toString().trim().isEmpty() && !phone.getText().toString().trim().isEmpty() && !email.toString().trim().isEmpty()) {
+                    FragmentTransaction transaction = fm.beginTransaction();
+                    transaction.replace(R.id.content, new VehicleInformationFragment());
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                }
             }
         });
 
