@@ -1,16 +1,26 @@
 package com.example.jd.dealershipapp;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Context;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.TimePicker;
 
-import com.rey.material.app.DatePickerDialog;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
 
 /**
@@ -21,7 +31,12 @@ import com.rey.material.app.DatePickerDialog;
  * Use the {@link IssueInformationFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class IssueInformationFragment extends Fragment {
+public class IssueInformationFragment extends Fragment implements android.app.DatePickerDialog.OnDateSetListener {
+    @Override
+    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+
+    }
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -34,6 +49,19 @@ public class IssueInformationFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
 
     FragmentManager fm;
+
+    EditText dateText;
+    EditText timeText;
+    DatePickerDialog date;
+    TimePickerDialog time;
+    TimePickerDialog.OnTimeSetListener timeSetListener;
+
+    TextView dateView;
+    TextView timeView;
+    TextView issueView;
+    EditText issueText;
+
+    int hour, min;
 
     public IssueInformationFragment() {
         // Required empty public constructor
@@ -72,12 +100,114 @@ public class IssueInformationFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_issue_information, container, false);
 
-        DatePickerDialog date = new DatePickerDialog(getActivity());
+        fm = getActivity().getSupportFragmentManager();
+
+        issueText = view.findViewById(R.id.issue);
+        issueView = view.findViewById(R.id.issueText);
+
+        dateView = view.findViewById(R.id.dateTitle);
+        timeView = view.findViewById(R.id.timeTitle);
+
+        Calendar current = Calendar.getInstance();
+        hour = current.get(Calendar.HOUR_OF_DAY);
+        min = current.get(Calendar.MINUTE);
+        timeText = view.findViewById(R.id.time);
+
+        date = new DatePickerDialog(getActivity());
+        dateText = view.findViewById(R.id.date);
+        date.setOnDateSetListener(new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                dateText.setText(day + " / " + (month + 1) + " / " + year);
+            }
+        });
+        dateText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                date.show();
+                dateView.setTextColor(Color.BLACK);
+                dateView.setText(R.string.date_title);
+            }
+        });
+
+
+        timeSetListener = new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int i, int i1) {
+                hour = i;
+                min = i1;
+                String hourString;
+                String minString;
+                String amPm;
+                if (hour > 12) {
+                    hourString = hour - 12 + "";
+                    amPm = "PM";
+                } else if(hour == 12) {
+                    hourString = "12";
+                    amPm = "PM";
+                } else if(hour == 0) {
+                    hourString = "12";
+                    amPm = "AM";
+                } else {
+                    hourString = hour + "";
+                    amPm = "AM";
+                }
+
+                if(min < 10) {
+                    minString = "0" + min;
+                } else {
+                    minString = min + "";
+                }
+
+                timeText.setText(hourString + ":" + minString + " " + amPm);
+
+            }
+        };
+
+        time = new TimePickerDialog(getActivity(), timeSetListener, hour, min, false);
+
+        timeText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                time.show();
+                timeView.setTextColor(Color.BLACK);
+                timeView.setText(R.string.time_title);
+            }
+        });
+
+        Button backButton = view.findViewById(R.id.backButtonIssue);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction = fm.beginTransaction();
+
+                transaction.replace(R.id.content, fm.findFragmentByTag("vehicle"));
+                transaction.addToBackStack(null);
+
+                transaction.commit();
+            }
+        });
 
         Button submitButton = view.findViewById(R.id.submitButtonIssue);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(dateText.getText().toString().trim().isEmpty()) {
+                    dateView.setTextColor(Color.RED);
+                    dateView.setText(R.string.date_empty);
+                }
+                if(timeText.getText().toString().trim().isEmpty()) {
+                    timeView.setTextColor(Color.RED);
+                    timeView.setText(R.string.time_empty);
+                }
+                if(issueText.getText().toString().trim().isEmpty()) {
+                    issueView.setTextColor(Color.RED);
+                    issueView.setText(R.string.issue_empty);
+                }
+
+                if(!dateText.getText().toString().trim().isEmpty() && !timeText.getText().toString().trim().isEmpty() && !issueText.getText().toString().trim().isEmpty()) {
+
+                }
 
             }
         });

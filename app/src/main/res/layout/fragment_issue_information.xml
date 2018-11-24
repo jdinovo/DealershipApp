@@ -15,7 +15,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="0"
         android:gravity="bottom|center"
-        android:text="sometext"
+        android:text="@string/issue_info_header"
+        android:textColor="@color/color_black"
         android:textSize="@dimen/heading_font_size"
         android:textStyle="bold" />
 
@@ -24,17 +25,65 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:autofillHints=""
-        android:ems="10"
-        android:gravity="center"
+        android:clickable="true"
+        android:cursorVisible="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:gravity="bottom|center"
+        android:hint="@string/date_hint"
         android:inputType="date"
-        android:textSize="@dimen/body_font_size"
-        tools:targetApi="o" />
+        android:singleLine="true"
+        android:textColor="@color/color_black" />
 
-    <com.rey.material.widget.DatePicker
-        android:id="@+id/datePick"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></com.rey.material.widget.DatePicker>
+
+    <TextView
+        android:id="@+id/dateTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:text="@string/date_title"
+        android:textColor="@color/color_black" />
+
+    <EditText
+        android:id="@+id/time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:cursorVisible="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:gravity="bottom|center"
+        android:hint="@string/time_hint"
+        android:inputType="time"
+        android:singleLine="true"
+        android:textColor="@color/color_black" />
+
+    <TextView
+        android:id="@+id/timeTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:text="@string/time_title"
+        android:textColor="@color/color_black" />
+
+    <EditText
+        android:id="@+id/issue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="@string/issue_hint"
+        android:inputType="textMultiLine"
+        android:textColor="@color/color_black" />
+
+    <TextView
+        android:id="@+id/issueText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:text="@string/issue_title"
+        android:textColor="@color/color_black" />
 
     <LinearLayout
         android:layout_width="wrap_content"

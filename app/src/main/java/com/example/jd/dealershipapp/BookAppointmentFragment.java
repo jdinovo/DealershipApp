@@ -40,6 +40,8 @@ public class BookAppointmentFragment extends Fragment {
     FragmentManager fm;
 
     EditText email;
+    boolean emailPass = true;
+    boolean phonePass = true;
     EditText phone;
     TextView emailTitle;
     TextView phoneTitle;
@@ -150,7 +152,9 @@ public class BookAppointmentFragment extends Fragment {
                     phone.setTextColor(Color.RED);
                     phoneTitle.setTextColor(Color.RED);
                     phoneTitle.setText(R.string.phone_warning);
+                    phonePass = false;
                 } else {
+                    phonePass = true;
                     phone.setTextColor(Color.BLACK);
                     phoneTitle.setTextColor(Color.BLACK);
                     phoneTitle.setText(R.string.phone);
@@ -175,7 +179,9 @@ public class BookAppointmentFragment extends Fragment {
                     email.setTextColor(Color.RED);
                     emailTitle.setTextColor(Color.RED);
                     emailTitle.setText(R.string.email_waring);
+                    emailPass = false;
                 } else {
+                    emailPass = true;
                     email.setTextColor(Color.BLACK);
                     emailTitle.setTextColor(Color.BLACK);
                     emailTitle.setText(R.string.email);
@@ -206,11 +212,19 @@ public class BookAppointmentFragment extends Fragment {
                 }
 
 
-                if(!fName.getText().toString().trim().isEmpty() && !lName.getText().toString().trim().isEmpty() && !phone.getText().toString().trim().isEmpty() && !email.toString().trim().isEmpty()) {
+                if(emailPass && phonePass && !fName.getText().toString().trim().isEmpty() && !lName.getText().toString().trim().isEmpty() && !phone.getText().toString().trim().isEmpty() && !email.toString().trim().isEmpty()) {
+
                     FragmentTransaction transaction = fm.beginTransaction();
-                    transaction.replace(R.id.content, new VehicleInformationFragment());
-                    transaction.addToBackStack(null);
-                    transaction.commit();
+                    Fragment selectedFragment = fm.findFragmentByTag("vehicle");
+
+                    if(selectedFragment == null) {
+                        transaction.replace(R.id.content, new VehicleInformationFragment(), "vehicle");
+                        transaction.addToBackStack(null);
+                    } else if(!selectedFragment.isVisible()) {
+                        transaction.replace(R.id.content, selectedFragment);
+                        transaction.addToBackStack(null);
+                    }
+                        transaction.commit();
                 }
             }
         });

@@ -39,6 +39,7 @@ public class VehicleInformationFragment extends Fragment {
     private String mParam2;
 
     FragmentManager fm;
+    ArrayAdapter<CharSequence> modelAdapter;
 
     private OnFragmentInteractionListener mListener;
 
@@ -95,27 +96,31 @@ public class VehicleInformationFragment extends Fragment {
         // Apply the adapter to the spinner
         brandSpinner.setAdapter(brandAdapter);
 
+        modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.model_blank_array, android.R.layout.simple_spinner_item);
+
+        modelAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        modelSpinner.setAdapter(modelAdapter);
+
         brandSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
                 if(view != null) {
                     if(!brandSpinner.getSelectedItem().toString().equals("Brand")) {
                         brandSpinner.setBackgroundColor(Color.TRANSPARENT);
                     }
                     if (adapterView.getItemAtPosition(i).toString().equals("BMW")) {
-                        ArrayAdapter<CharSequence> modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.bmw_model_array, android.R.layout.simple_spinner_item);
-                        modelAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                        modelSpinner.setAdapter(modelAdapter);
+                        modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.bmw_model_array, android.R.layout.simple_spinner_item);
                     } else if (adapterView.getItemAtPosition(i).toString().equals("Jeep")) {
-                        ArrayAdapter<CharSequence> modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.jeep_model_array, android.R.layout.simple_spinner_item);
-                        modelAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                        modelSpinner.setAdapter(modelAdapter);
+                        modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.jeep_model_array, android.R.layout.simple_spinner_item);
                     } else {
-                        ArrayAdapter<CharSequence> modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.model_blank_array, android.R.layout.simple_spinner_item);
-                        modelAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                        modelSpinner.setAdapter(modelAdapter);
+                        modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.model_blank_array, android.R.layout.simple_spinner_item);
                     }
+
+                    modelAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    modelSpinner.setAdapter(modelAdapter);
                 }
+
             }
 
             @Override
@@ -178,7 +183,14 @@ public class VehicleInformationFragment extends Fragment {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getFragmentManager().popBackStackImmediate();
+//                getFragmentManager().popBackStackImmediate();
+                FragmentTransaction transaction = fm.beginTransaction();
+
+                transaction.replace(R.id.content, fm.findFragmentByTag("appt"));
+                transaction.addToBackStack(null);
+
+                transaction.commit();
+
             }
         });
 
@@ -203,10 +215,17 @@ public class VehicleInformationFragment extends Fragment {
                 }
 
 
-                if(!(brandSpinner.getSelectedItem().toString() == "Brand") && !(modelSpinner.getSelectedItem().toString() == "Model") && !vinNum.getText().toString().trim().isEmpty() && !km.getText().toString().trim().isEmpty()) {
+                if(!brandSpinner.getSelectedItem().toString().equals("Brand") && !modelSpinner.getSelectedItem().toString().equals("Model") && !vinNum.getText().toString().trim().isEmpty() && !km.getText().toString().trim().isEmpty()) {
                     FragmentTransaction transaction = fm.beginTransaction();
-                    transaction.replace(R.id.content, new IssueInformationFragment());
-                    transaction.addToBackStack(null);
+
+                    Fragment selectedFragment = fm.findFragmentByTag("issue");
+                    if(selectedFragment == null) {
+                        transaction.replace(R.id.content, new IssueInformationFragment(), "issue");
+                        transaction.addToBackStack(null);
+                    } else if(!selectedFragment.isVisible()) {
+                        transaction.replace(R.id.content, selectedFragment);
+                        transaction.addToBackStack(null);
+                    }
                     transaction.commit();
                 }
             }

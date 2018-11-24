@@ -46,6 +46,19 @@
     <string name="kmText">Kilometers</string>
     <string name="km_blank">Kilometers cannot be left blank</string>
 
+    <string name="issue_info_header">Appointment Information</string>
+    <string name="date_title">Date</string>
+    <string name="date_hint">Appointment Date</string>
+    <string name="date_empty">Date cannot be left blank</string>
+
+    <string name="time_title">Time</string>
+    <string name="time_hint">Appointment Time</string>
+    <string name="time_empty">Time cannot be left blank</string>
+
+    <string name="issue_title">Vehicle Issue</string>
+    <string name="issue_hint">Issues and/or work required</string>
+    <string name="issue_empty">Vehicle Issue cannot be left blank</string>
+
     <string name="title_vehicle_list">Vehicles</string>
     <string name="title_vehicle_detail">Vehicle Detail</string>
 
@@ -110,10 +123,10 @@
     <string name="price4">$10,000</string>
     <string name="description4">A zippy little car. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc luctus ut turpis quis bibendum. Quisque faucibus convallis mauris quis bibendum. Nunc sed nisi est. Cras posuere nec nisi a vestibulum. In ullamcorper tincidunt lorem et tincidunt. Maecenas at risus eleifend, ultrices ipsum feugiat, vulputate quam. Maecenas dignissim risus ac egestas mollis. Proin sagittis lorem augue, a volutpat tellus dictum quis. Vestibulum non urna id nunc ullamcorper rhoncus. Duis hendrerit dolor euismod dui pulvinar sollicitudin. Stock#: 0004</string>
 
-    <string name="brand5">Jeep</string>
-    <string name="model5">Wrangler</string>
-    <string name="year5">2009</string>
-    <string name="price5">$20,000</string>
-    <string name="description5"></string>
+    <string name="brand5">Brand</string>
+    <string name="model5">Model</string>
+    <string name="year5">Year</string>
+    <string name="price5">Price</string>
+    <string name="description5">Description</string>
 
 </resources>
