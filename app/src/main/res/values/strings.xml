@@ -97,6 +97,56 @@
         <item>Compass</item>
         <item>Cherokee</item>
     </string-array>
+    <string-array name="mercedes_model_array">
+        <item>Model</item>
+        <item>C class</item>
+        <item>E class</item>
+        <item>GLC</item>
+        <item>GLE</item>
+        <item>G class</item>
+        <item>S class</item>
+    </string-array>
+    <string-array name="ford_model_array">
+        <item>Model</item>
+        <item>Escape</item>
+        <item>Explorer</item>
+        <item>Expedition</item>
+        <item>F150</item>
+        <item>F250</item>
+        <item>F350</item>
+        <item>F450</item>
+    </string-array>
+    <string-array name="gmc_model_array">
+        <item>Model</item>
+        <item>Sierra 1500</item>
+        <item>Sierra 2500HD</item>
+        <item>Sierra 3500HD</item>
+        <item>Terrain</item>
+    </string-array>
+    <string-array name="chev_model_array">
+        <item>Model</item>
+        <item>Silverado 1500</item>
+        <item>Silverado 2500HD</item>
+        <item>Silverado 3500HD</item>
+        <item>Equinox</item>
+        <item>Avalanche</item>
+    </string-array>
+    <string-array name="ram_model_array">
+        <item>Model</item>
+        <item>1500</item>
+        <item>2500HD</item>
+        <item>3500HD</item>
+        <item>Promaster</item>
+    </string-array>
+    <string-array name="toyota_model_array">
+        <item>Model</item>
+        <item>Avalon</item>
+        <item>Camry</item>
+        <item>4Runner</item>
+        <item>Rav4</item>
+        <item>Tacoma</item>
+        <item>Tundra</item>
+    </string-array>
 
     <!--VEHICLE INVENTORY INFO-->
     <string name="brand1">Jeep</string>
