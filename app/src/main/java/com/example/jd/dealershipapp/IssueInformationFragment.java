@@ -17,6 +17,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -206,6 +207,13 @@ public class IssueInformationFragment extends Fragment implements android.app.Da
                 }
 
                 if(!dateText.getText().toString().trim().isEmpty() && !timeText.getText().toString().trim().isEmpty() && !issueText.getText().toString().trim().isEmpty()) {
+                    FragmentTransaction transaction = fm.beginTransaction();
+
+                    transaction.replace(R.id.content, fm.findFragmentByTag("main"));
+                    transaction.addToBackStack(null);
+
+                    transaction.commit();
+                    Toast.makeText(getActivity(), "Appointment set, see you soon!", Toast.LENGTH_LONG).show();
 
                 }
 
