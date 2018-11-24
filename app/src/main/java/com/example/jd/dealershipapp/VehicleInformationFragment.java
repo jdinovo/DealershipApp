@@ -19,6 +19,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.jd.dealershipapp.JavaBean.Customer;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -228,8 +230,13 @@ public class VehicleInformationFragment extends Fragment {
 
 
                 if(!brandSpinner.getSelectedItem().toString().equals("Brand") && !modelSpinner.getSelectedItem().toString().equals("Model") && !vinNum.getText().toString().trim().isEmpty() && !km.getText().toString().trim().isEmpty()) {
-                    FragmentTransaction transaction = fm.beginTransaction();
 
+                    Customer.setBrand(brandSpinner.getSelectedItem().toString());
+                    Customer.setModel(modelSpinner.getSelectedItem().toString());
+                    Customer.setVin(vinNum.getText().toString().trim());
+                    Customer.setKm(km.getText().toString().trim());
+
+                    FragmentTransaction transaction = fm.beginTransaction();
                     Fragment selectedFragment = fm.findFragmentByTag("issue");
                     if(selectedFragment == null) {
                         transaction.replace(R.id.content, new IssueInformationFragment(), "issue");

@@ -3,12 +3,14 @@ package com.example.jd.dealershipapp;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import com.example.jd.dealershipapp.JavaBean.Customer;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -50,6 +54,8 @@ public class IssueInformationFragment extends Fragment implements android.app.Da
     private OnFragmentInteractionListener mListener;
 
     FragmentManager fm;
+
+    String[] email = {"service@wheelerdealer.ca"};
 
     EditText dateText;
     EditText timeText;
@@ -207,11 +213,30 @@ public class IssueInformationFragment extends Fragment implements android.app.Da
                 }
 
                 if(!dateText.getText().toString().trim().isEmpty() && !timeText.getText().toString().trim().isEmpty() && !issueText.getText().toString().trim().isEmpty()) {
-                    FragmentTransaction transaction = fm.beginTransaction();
 
+                    Customer.setDate(dateText.getText().toString().trim());
+                    Customer.setTime(timeText.getText().toString().trim());
+                    Customer.setIssue(issueText.getText().toString().trim());
+
+                    Intent i = new Intent(Intent.ACTION_SENDTO);
+                    i.setData(Uri.parse("mailto:"));
+                    i.putExtra(Intent.EXTRA_EMAIL, email);
+                    i.putExtra(Intent.EXTRA_SUBJECT, "SERVICE APPOINTMENT REQUEST");
+                    i.putExtra(Intent.EXTRA_TEXT, "- CUSTOMER INFO -\nName: " + Customer.getFirstName() + " " + Customer.getLastName() + "\nEmail: " + Customer.getEmail() + "\nPhone: " + Customer.getPhone() + "\n\n" +
+                                                        "- VEHICLE INFO -\nBrand: " + Customer.getBrand() + "\nModel: " + Customer.getModel() + "\nVIN: " + Customer.getVin() + "\nKM: " + Customer.getKm() + "\n\n" +
+                                                        "- APPOINTMENT INFO -\nDate: " + Customer.getDate() + "\nTime: " + Customer.getTime() + "\nIssue: " + Customer.getIssue());
+
+                    AppCompatActivity activity = (AppCompatActivity) view.getContext();
+
+                    if (i.resolveActivity(activity.getPackageManager()) != null) {
+                        activity.startActivity(i);
+                    } else {
+                        Toast.makeText(activity.getApplicationContext(), "You do not have the correct software", Toast.LENGTH_SHORT).show();
+                    }
+
+                    FragmentTransaction transaction = fm.beginTransaction();
                     transaction.replace(R.id.content, fm.findFragmentByTag("main"));
                     transaction.addToBackStack(null);
-
                     transaction.commit();
                     Toast.makeText(getActivity(), "Appointment set, see you soon!", Toast.LENGTH_LONG).show();
 

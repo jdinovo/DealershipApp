@@ -6,50 +6,23 @@ package com.example.jd.dealershipapp.JavaBean;
  * @author James DiNovo
  */
 public class Customer {
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String phone;
-    private String brand;
-    private String model;
-    private String vin;
-    private String km;
-
-    /**
-     * no-args constructor
-     */
-    public Customer() {
-
-    }
-
-    /**
-     * args constructor
-     *
-     * @param firstName
-     * @param lastName
-     * @param email
-     * @param phone
-     * @param brand
-     * @param model
-     * @param vin
-     * @param km
-     */
-    public Customer(String firstName, String lastName, String email, String phone, String brand, String model, String vin, String km) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.phone = phone;
-        this.brand = brand;
-        this.model = model;
-        this.vin = vin;
-        this.km = km;
-    }
+    private static String firstName;
+    private static String lastName;
+    private static String email;
+    private static String phone;
+    private static String brand;
+    private static String model;
+    private static String vin;
+    private static String km;
+    private static String date;
+    private static String time;
+    private static String issue;
 
     /**
      *
      * @return String
      */
-    public String getFirstName() {
+    public static String getFirstName() {
         return firstName;
     }
 
@@ -57,15 +30,15 @@ public class Customer {
      *
      * @param firstName
      */
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public static void setFirstName(String firstName) {
+        Customer.firstName = firstName;
     }
 
     /**
      *
      * @return String
      */
-    public String getLastName() {
+    public static String getLastName() {
         return lastName;
     }
 
@@ -73,15 +46,15 @@ public class Customer {
      *
      * @param lastName
      */
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public static void setLastName(String lastName) {
+        Customer.lastName = lastName;
     }
 
     /**
      *
      * @return String
      */
-    public String getEmail() {
+    public static String getEmail() {
         return email;
     }
 
@@ -89,15 +62,15 @@ public class Customer {
      *
      * @param email
      */
-    public void setEmail(String email) {
-        this.email = email;
+    public static void setEmail(String email) {
+        Customer.email = email;
     }
 
     /**
      *
      * @return String
      */
-    public String getPhone() {
+    public static String getPhone() {
         return phone;
     }
 
@@ -105,15 +78,15 @@ public class Customer {
      *
      * @param phone
      */
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public static void setPhone(String phone) {
+        Customer.phone = phone;
     }
 
     /**
      *
      * @return String
      */
-    public String getBrand() {
+    public static String getBrand() {
         return brand;
     }
 
@@ -121,15 +94,15 @@ public class Customer {
      *
      * @param brand
      */
-    public void setBrand(String brand) {
-        this.brand = brand;
+    public static void setBrand(String brand) {
+        Customer.brand = brand;
     }
 
     /**
      *
      * @return String
      */
-    public String getModel() {
+    public static String getModel() {
         return model;
     }
 
@@ -137,15 +110,15 @@ public class Customer {
      *
      * @param model
      */
-    public void setModel(String model) {
-        this.model = model;
+    public static void setModel(String model) {
+        Customer.model = model;
     }
 
     /**
      *
      * @return String
      */
-    public String getVin() {
+    public static String getVin() {
         return vin;
     }
 
@@ -153,15 +126,15 @@ public class Customer {
      *
      * @param vin
      */
-    public void setVin(String vin) {
-        this.vin = vin;
+    public static void setVin(String vin) {
+        Customer.vin = vin;
     }
 
     /**
      *
      * @return String
      */
-    public String getKm() {
+    public static String getKm() {
         return km;
     }
 
@@ -169,7 +142,55 @@ public class Customer {
      *
      * @param km
      */
-    public void setKm(String km) {
-        this.km = km;
+    public static void setKm(String km) {
+        Customer.km = km;
+    }
+
+    /**
+     *
+     * @return String
+     */
+    public static String getDate() {
+        return date;
+    }
+
+    /**
+     *
+     * @param date
+     */
+    public static void setDate(String date) {
+        Customer.date = date;
+    }
+
+    /**
+     *
+     * @return String
+     */
+    public static String getTime() {
+        return time;
+    }
+
+    /**
+     *
+     * @param time
+     */
+    public static void setTime(String time) {
+        Customer.time = time;
+    }
+
+    /**
+     *
+     * @return String
+     */
+    public static String getIssue() {
+        return issue;
+    }
+
+    /**
+     *
+     * @param issue
+     */
+    public static void setIssue(String issue) {
+        Customer.issue = issue;
     }
 }

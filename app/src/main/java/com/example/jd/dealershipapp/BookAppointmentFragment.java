@@ -16,6 +16,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.jd.dealershipapp.JavaBean.Customer;
+
 import java.util.regex.*;
 
 
@@ -148,7 +150,7 @@ public class BookAppointmentFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if(!phonePattern1.matcher(phone.getText()).find() && !phonePattern2.matcher(phone.getText()).find()) {
+                if(!phonePattern1.matcher(phone.getText()).find() && (!phonePattern2.matcher(phone.getText()).find() || phone.getText().length() > 10)) {
                     phone.setTextColor(Color.RED);
                     phoneTitle.setTextColor(Color.RED);
                     phoneTitle.setText(R.string.phone_warning);
@@ -213,6 +215,11 @@ public class BookAppointmentFragment extends Fragment {
 
 
                 if(emailPass && phonePass && !fName.getText().toString().trim().isEmpty() && !lName.getText().toString().trim().isEmpty() && !phone.getText().toString().trim().isEmpty() && !email.toString().trim().isEmpty()) {
+
+                    Customer.setFirstName(fName.getText().toString().trim());
+                    Customer.setLastName(lName.getText().toString().trim());
+                    Customer.setEmail(email.getText().toString().trim());
+                    Customer.setPhone(phone.getText().toString().trim());
 
                     FragmentTransaction transaction = fm.beginTransaction();
                     Fragment selectedFragment = fm.findFragmentByTag("vehicle");
