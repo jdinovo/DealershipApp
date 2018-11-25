@@ -179,4 +179,40 @@
     <string name="price5">Price</string>
     <string name="description5">Description</string>
 
+
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">Contact Information</string>
+
+    <!--Customer settings-->
+
+    <string name="pref_title_first_name">First Name</string>
+    <string name="pref_default_first_name">John</string>
+
+    <string name="pref_title_last_name">Last Name</string>
+    <string name="pref_default_last_name">Smith</string>
+
+    <string name="pref_title_email">Email Address</string>
+    <string name="pref_default_email">john.smith@example.com</string>
+
+    <string name="pref_title_phone">Phone Number</string>
+    <string name="pref_default_phone">(555)555-5555</string>
+
+    <!--CAR SETTINGS-->
+    <string name="pref_header_vehicle">Vehicle Information</string>
+
+    <string name="pref_title_brand">Brand</string>
+
+    <string name="pref_title_model">Model</string>
+
+    <string name="pref_title_vin">VIN</string>
+    <string name="pref_default_vin"> </string>
+
+    <string name="pref_title_km">Kilometers</string>
+    <string name="pref_default_km">9999</string>
+
+
 </resources>
