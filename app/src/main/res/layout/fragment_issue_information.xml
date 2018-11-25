@@ -10,106 +10,79 @@
     tools:context=".BookAppointmentFragment">
 
     <TextView
-        android:id="@+id/contactInfoHeader"
+        android:id="@+id/issueInfoHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0"
         android:gravity="bottom|center"
-        android:text="@string/contact_info_header"
+        android:text="@string/issue_info_header"
         android:textColor="@color/color_black"
         android:textSize="@dimen/heading_font_size"
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/fName"
+        android:id="@+id/date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:autofillHints=""
-        android:ems="10"
+        android:clickable="true"
+        android:cursorVisible="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:gravity="bottom|center"
-        android:hint="@string/first_name_hint"
-        android:inputType="textPersonName"
+        android:hint="@string/date_hint"
+        android:inputType="date"
         android:singleLine="true"
-        android:textColor="@color/color_black"
-        android:textSize="@dimen/body_font_size"
-        tools:targetApi="o" />
+        android:textColor="@color/color_black" />
+
 
     <TextView
-        android:id="@+id/fNameTitle"
+        android:id="@+id/dateTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0"
-        android:text="@string/first_name"
+        android:text="@string/date_title"
         android:textColor="@color/color_black" />
 
     <EditText
-        android:id="@+id/lName"
+        android:id="@+id/time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:autofillHints=""
-        android:ems="10"
+        android:clickable="true"
+        android:cursorVisible="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:gravity="bottom|center"
-        android:hint="@string/last_name_hint"
-        android:inputType="textPersonName"
+        android:hint="@string/time_hint"
+        android:inputType="time"
         android:singleLine="true"
-        android:textColor="@color/color_black"
-        android:textSize="@dimen/body_font_size"
-        tools:targetApi="o" />
+        android:textColor="@color/color_black" />
 
     <TextView
-        android:id="@+id/lNameTitle"
+        android:id="@+id/timeTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0"
-        android:text="@string/last_name"
+        android:text="@string/time_title"
         android:textColor="@color/color_black" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/issue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:autofillHints=""
         android:ems="10"
-        android:gravity="bottom|center"
-        android:hint="@string/email_hint"
-        android:inputType="textEmailAddress"
-        android:singleLine="true"
-        android:textColor="@color/color_black"
-        android:textSize="@dimen/body_font_size"
-        tools:targetApi="o" />
-
-    <TextView
-        android:id="@+id/emailTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:text="@string/email"
+        android:hint="@string/issue_hint"
+        android:inputType="textMultiLine"
         android:textColor="@color/color_black" />
 
-    <EditText
-        android:id="@+id/phone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:autofillHints=""
-        android:ems="10"
-        android:gravity="bottom|center"
-        android:hint="@string/phone_hint"
-        android:inputType="phone"
-        android:singleLine="true"
-        android:textColor="@color/color_black"
-        android:textSize="@dimen/body_font_size"
-        tools:targetApi="o" />
-
     <TextView
-        android:id="@+id/phoneTitle"
+        android:id="@+id/issueText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0"
-        android:text="@string/phone"
+        android:text="@string/issue_title"
         android:textColor="@color/color_black" />
 
     <LinearLayout
@@ -119,12 +92,20 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/nextButtonContact"
+            android:id="@+id/backButtonIssue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/form_margin"
-            android:layout_weight="0"
-            android:text="@string/next_button" />
+            android:layout_weight="1"
+            android:text="@string/back_button" />
+
+        <Button
+            android:id="@+id/submitButtonIssue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/form_margin"
+            android:text="@string/submit_button" />
+
     </LinearLayout>
 
 </LinearLayout>

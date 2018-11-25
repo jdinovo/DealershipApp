@@ -1,5 +1,6 @@
 package com.example.jd.dealershipapp;
 
+import android.app.DatePickerDialog;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -27,7 +28,9 @@ public class MainActivity extends AppCompatActivity
         MeetTheTeamFragment.OnFragmentInteractionListener,
         CreditsFragment.OnFragmentInteractionListener,
         VehicleFragment.OnFragmentInteractionListener,
-        ImagesFragment.OnFragmentInteractionListener {
+        ImagesFragment.OnFragmentInteractionListener,
+        VehicleInformationFragment.OnFragmentInteractionListener,
+        IssueInformationFragment.OnFragmentInteractionListener {
 
     FragmentManager fm;
 
