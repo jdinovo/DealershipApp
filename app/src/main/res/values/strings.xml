@@ -156,21 +156,21 @@
     <string name="description1">An SUV with 4wd that can go anywhere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc luctus ut turpis quis bibendum. Quisque faucibus convallis mauris quis bibendum. Nunc sed nisi est. Cras posuere nec nisi a vestibulum. In ullamcorper tincidunt lorem et tincidunt. Maecenas at risus eleifend, ultrices ipsum feugiat, vulputate quam. Maecenas dignissim risus ac egestas mollis. Proin sagittis lorem augue, a volutpat tellus dictum quis. Vestibulum non urna id nunc ullamcorper rhoncus. Duis hendrerit dolor euismod dui pulvinar sollicitudin. Stock#: 0001</string>
 
     <string name="brand2">Ford</string>
-    <string name="model2">Escape</string>
-    <string name="year2">2014</string>
-    <string name="price2">$15,000</string>
-    <string name="description2">A sporty SUV. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc luctus ut turpis quis bibendum. Quisque faucibus convallis mauris quis bibendum. Nunc sed nisi est. Cras posuere nec nisi a vestibulum. In ullamcorper tincidunt lorem et tincidunt. Maecenas at risus eleifend, ultrices ipsum feugiat, vulputate quam. Maecenas dignissim risus ac egestas mollis. Proin sagittis lorem augue, a volutpat tellus dictum quis. Vestibulum non urna id nunc ullamcorper rhoncus. Duis hendrerit dolor euismod dui pulvinar sollicitudin. Stock#: 0002</string>
+    <string name="model2">Mustang</string>
+    <string name="year2">2015</string>
+    <string name="price2">$25,000</string>
+    <string name="description2">A sporty car. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc luctus ut turpis quis bibendum. Quisque faucibus convallis mauris quis bibendum. Nunc sed nisi est. Cras posuere nec nisi a vestibulum. In ullamcorper tincidunt lorem et tincidunt. Maecenas at risus eleifend, ultrices ipsum feugiat, vulputate quam. Maecenas dignissim risus ac egestas mollis. Proin sagittis lorem augue, a volutpat tellus dictum quis. Vestibulum non urna id nunc ullamcorper rhoncus. Duis hendrerit dolor euismod dui pulvinar sollicitudin. Stock#: 0002</string>
 
     <string name="brand3">GMC</string>
-    <string name="model3">Sierra 2500HD</string>
-    <string name="year3">2015</string>
+    <string name="model3">Yukon</string>
+    <string name="year3">2018</string>
     <string name="price3">$30,000</string>
-    <string name="description3">A heavy duty pickup truck. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc luctus ut turpis quis bibendum. Quisque faucibus convallis mauris quis bibendum. Nunc sed nisi est. Cras posuere nec nisi a vestibulum. In ullamcorper tincidunt lorem et tincidunt. Maecenas at risus eleifend, ultrices ipsum feugiat, vulputate quam. Maecenas dignissim risus ac egestas mollis. Proin sagittis lorem augue, a volutpat tellus dictum quis. Vestibulum non urna id nunc ullamcorper rhoncus. Duis hendrerit dolor euismod dui pulvinar sollicitudin. Stock#: 0003</string>
+    <string name="description3">A roomy luxurious suv. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc luctus ut turpis quis bibendum. Quisque faucibus convallis mauris quis bibendum. Nunc sed nisi est. Cras posuere nec nisi a vestibulum. In ullamcorper tincidunt lorem et tincidunt. Maecenas at risus eleifend, ultrices ipsum feugiat, vulputate quam. Maecenas dignissim risus ac egestas mollis. Proin sagittis lorem augue, a volutpat tellus dictum quis. Vestibulum non urna id nunc ullamcorper rhoncus. Duis hendrerit dolor euismod dui pulvinar sollicitudin. Stock#: 0003</string>
 
     <string name="brand4">MINI</string>
     <string name="model4">Cooper S</string>
-    <string name="year4">2010</string>
-    <string name="price4">$10,000</string>
+    <string name="year4">2005</string>
+    <string name="price4">$8,000</string>
     <string name="description4">A zippy little car. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc luctus ut turpis quis bibendum. Quisque faucibus convallis mauris quis bibendum. Nunc sed nisi est. Cras posuere nec nisi a vestibulum. In ullamcorper tincidunt lorem et tincidunt. Maecenas at risus eleifend, ultrices ipsum feugiat, vulputate quam. Maecenas dignissim risus ac egestas mollis. Proin sagittis lorem augue, a volutpat tellus dictum quis. Vestibulum non urna id nunc ullamcorper rhoncus. Duis hendrerit dolor euismod dui pulvinar sollicitudin. Stock#: 0004</string>
 
     <string name="brand5">Brand</string>
@@ -178,5 +178,41 @@
     <string name="year5">Year</string>
     <string name="price5">Price</string>
     <string name="description5">Description</string>
+
+
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">Contact Information</string>
+
+    <!--Customer settings-->
+
+    <string name="pref_title_first_name">First Name</string>
+    <string name="pref_default_first_name">John</string>
+
+    <string name="pref_title_last_name">Last Name</string>
+    <string name="pref_default_last_name">Smith</string>
+
+    <string name="pref_title_email">Email Address</string>
+    <string name="pref_default_email">john.smith@example.com</string>
+
+    <string name="pref_title_phone">Phone Number</string>
+    <string name="pref_default_phone">(555)555-5555</string>
+
+    <!--CAR SETTINGS-->
+    <string name="pref_header_vehicle">Vehicle Information</string>
+
+    <string name="pref_title_brand">Brand</string>
+
+    <string name="pref_title_model">Model</string>
+
+    <string name="pref_title_vin">VIN</string>
+    <string name="pref_default_vin"> </string>
+
+    <string name="pref_title_km">Kilometers</string>
+    <string name="pref_default_km">9999</string>
+
 
 </resources>
