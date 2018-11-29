@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity
 
     FragmentManager fm;
 
-    private DrawerLayout drawerLayout;
-    private ActionBarDrawerToggle mToggle;
+    private DrawerLayout drawer;
+    private ActionBarDrawerToggle toggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +41,6 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawerLayout.addDrawerListener(mToggle);
-        mToggle.syncState();
-
         //Set up the first time we run the application
         fm = getSupportFragmentManager();
         if(savedInstanceState == null) {
@@ -54,7 +49,12 @@ public class MainActivity extends AppCompatActivity
             transaction.commit();
         }
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        drawer = findViewById(R.id.drawer_layout);
+        toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
 
