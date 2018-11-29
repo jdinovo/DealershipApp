@@ -1,15 +1,24 @@
 package com.example.jd.dealershipapp;
 
+import android.Manifest;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.provider.CalendarContract;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,6 +62,8 @@ public class IssueInformationFragment extends Fragment implements android.app.Da
 
     private OnFragmentInteractionListener mListener;
 
+    public static final int PERMISSION_WRITE_CALENDAR = 1;
+
     FragmentManager fm;
 
     String[] email = {"service@wheelerdealer.ca"};
@@ -68,7 +79,7 @@ public class IssueInformationFragment extends Fragment implements android.app.Da
     TextView issueView;
     EditText issueText;
 
-    int hour, min;
+    int hour, min, dateDay, dateMonth, dateYear;
 
     public IssueInformationFragment() {
         // Required empty public constructor
@@ -125,6 +136,9 @@ public class IssueInformationFragment extends Fragment implements android.app.Da
         date.setOnDateSetListener(new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                dateYear = year;
+                dateDay = day;
+                dateMonth = month;
                 dateText.setText(day + " / " + (month + 1) + " / " + year);
             }
         });
@@ -188,7 +202,7 @@ public class IssueInformationFragment extends Fragment implements android.app.Da
             public void onClick(View view) {
                 FragmentTransaction transaction = fm.beginTransaction();
 
-                transaction.replace(R.id.content, fm.findFragmentByTag("vehicle"));
+                transaction.replace(R.id.content, new VehicleInformationFragment());
                 transaction.addToBackStack(null);
 
                 transaction.commit();
@@ -212,7 +226,54 @@ public class IssueInformationFragment extends Fragment implements android.app.Da
                     issueView.setText(R.string.issue_empty);
                 }
 
+
+
                 if(!dateText.getText().toString().trim().isEmpty() && !timeText.getText().toString().trim().isEmpty() && !issueText.getText().toString().trim().isEmpty()) {
+
+                    //add appointment to calendar
+                    if(ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.WRITE_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
+                        //if we dont have the permission
+                        //Have we already asked them for permission? if so should we show rationale?
+                        if(ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), Manifest.permission.WRITE_CALENDAR)) {
+                            //i should so you a reason as to why i want the permission
+                            final AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
+                            alertDialog.setTitle("Calendar Permission");
+                            alertDialog.setMessage("We need access to your calendar to add the appointment.");
+                            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    alertDialog.dismiss();
+                                    //request permission again
+                                    ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.WRITE_CALENDAR}, PERMISSION_WRITE_CALENDAR);
+
+                                }
+                            });
+                            alertDialog.show();
+                        } else {
+                            //if this is the first time asking for permission
+                            //then ask for permission
+                            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.WRITE_CALENDAR}, PERMISSION_WRITE_CALENDAR);
+                        }
+
+                    } else {
+                        System.out.println("saved to calendar");
+                        //if we have permission
+                        Calendar beginTime = Calendar.getInstance();
+                        beginTime.set(dateYear, dateMonth, dateDay, hour, min);
+                        Intent i = new Intent(Intent.ACTION_INSERT)
+                                .setData(CalendarContract.Events.CONTENT_URI)
+                                .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, beginTime.getTimeInMillis())
+                                .putExtra(CalendarContract.Events.TITLE, "Vehicle service")
+                                .putExtra(CalendarContract.Events.DESCRIPTION, "Vehicle service appointment")
+                                .putExtra(CalendarContract.Events.EVENT_LOCATION, "Wheeler Dealer Service Center")
+                                .putExtra(CalendarContract.Events.AVAILABILITY, CalendarContract.Events.AVAILABILITY_BUSY);
+
+                        if(i.resolveActivity(getActivity().getPackageManager()) != null) {
+                            startActivity(i);
+                        } else {
+                            Toast.makeText(getContext(), "You do not have the correct software", Toast.LENGTH_SHORT).show();
+                        }
+                    }
 
                     Customer.setDate(dateText.getText().toString().trim());
                     Customer.setTime(timeText.getText().toString().trim());
@@ -234,10 +295,12 @@ public class IssueInformationFragment extends Fragment implements android.app.Da
                         Toast.makeText(activity.getApplicationContext(), "You do not have the correct software", Toast.LENGTH_SHORT).show();
                     }
 
-                    FragmentTransaction transaction = fm.beginTransaction();
-                    transaction.replace(R.id.content, fm.findFragmentByTag("main"));
-                    transaction.addToBackStack(null);
-                    transaction.commit();
+                    dateText.setText("");
+                    timeText.setText("");
+                    issueText.setText("");
+
+                    fm.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
                     Toast.makeText(getActivity(), "Appointment set, see you soon!", Toast.LENGTH_LONG).show();
 
                 }
@@ -285,5 +348,11 @@ public class IssueInformationFragment extends Fragment implements android.app.Da
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
     }
 }

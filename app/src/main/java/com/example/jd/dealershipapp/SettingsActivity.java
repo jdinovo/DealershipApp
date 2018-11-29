@@ -1,17 +1,22 @@
 package com.example.jd.dealershipapp;
 
 import android.annotation.TargetApi;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Message;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
+import android.preference.SwitchPreference;
 import android.support.v7.app.ActionBar;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
@@ -78,9 +83,10 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                 }
 
             } else {
-                // For all other preferences, set the summary to the value's
-                // simple string representation.
-                preference.setSummary(stringValue);
+                    // For all other preferences, set the summary to the value's
+                    // simple string representation.
+                    preference.setSummary(stringValue);
+
             }
             return true;
         }
@@ -171,6 +177,8 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.pref_customer);
             setHasOptionsMenu(true);
+            final SharedPreferences sf = getPreferenceManager().getSharedPreferences();
+            final SharedPreferences.Editor editor = sf.edit();
 
             // Bind the summaries of EditText/List/Dialog/Ringtone preferences
             // to their values. When their values change, their summaries are
@@ -180,6 +188,42 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             bindPreferenceSummaryToValue(findPreference("lName"));
             bindPreferenceSummaryToValue(findPreference("email"));
             bindPreferenceSummaryToValue(findPreference("phone"));
+            Preference button = findPreference("deleteCust");
+            button.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    builder.setTitle("Delete Information");
+                    builder.setMessage("Are you sure you want to delete all contact information?");
+                    builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                            findPreference("fName").setSummary("");
+                            findPreference("lName").setSummary("");
+                            findPreference("email").setSummary("");
+                            findPreference("phone").setSummary("");
+                            editor.remove("fName");
+                            editor.remove("lName");
+                            editor.remove("email");
+                            editor.remove("phone");
+                            editor.apply();
+                        }
+                    });
+                    builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                        }
+                    });
+
+                    AlertDialog alert = builder.create();
+                    alert.show();
+
+                    return true;
+                }
+            });
         }
 
         @Override
@@ -205,6 +249,9 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             addPreferencesFromResource(R.xml.pref_vehicle);
             setHasOptionsMenu(true);
 
+            final SharedPreferences sf = getPreferenceManager().getSharedPreferences();
+            final SharedPreferences.Editor editor = sf.edit();
+
             // Bind the summaries of EditText/List/Dialog/Ringtone preferences
             // to their values. When their values change, their summaries are
             // updated to reflect the new value, per the Android Design
@@ -213,6 +260,43 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             bindPreferenceSummaryToValue(findPreference("pref_model"));
             bindPreferenceSummaryToValue(findPreference("pref_vin"));
             bindPreferenceSummaryToValue(findPreference("pref_km"));
+
+            Preference button = findPreference("deleteVeh");
+            button.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    builder.setTitle("Delete Information");
+                    builder.setMessage("Are you sure you want to delete all vehicle information?");
+                    builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                            findPreference("pref_brand").setSummary("");
+                            findPreference("pref_model").setSummary("");
+                            findPreference("pref_vin").setSummary("");
+                            findPreference("pref_km").setSummary("");
+                            editor.remove("pref_brand");
+                            editor.remove("pref_model");
+                            editor.remove("pref_vin");
+                            editor.remove("pref_km");
+                            editor.apply();
+                        }
+                    });
+
+
+                    builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                        }
+                    });
+
+                    AlertDialog alert = builder.create();
+                    alert.show();
+                    return true;
+                }
+            });
         }
 
         @Override
