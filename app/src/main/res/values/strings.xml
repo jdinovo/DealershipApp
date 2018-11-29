@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DealershipApp</string>
+    <string name="app_name">Wheeler Dealer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -154,6 +154,58 @@
         <item>Tacoma</item>
         <item>Tundra</item>
     </string-array>
+    <string-array name="pref_model_array">
+        <item>Model</item>
+        <item>2 series</item>
+        <item>3 series</item>
+        <item>5 series</item>
+        <item>6 series</item>
+        <item>7 series</item>
+        <item>X3</item>
+        <item>X5</item>
+        <item>Wrangler JK</item>
+        <item>Grand Cherokee</item>
+        <item>Gladiator</item>
+        <item>Compass</item>
+        <item>Cherokee</item>
+        <item>Wrangler JK</item>
+        <item>Grand Cherokee</item>
+        <item>Gladiator</item>
+        <item>Compass</item>
+        <item>Cherokee</item>
+        <item>C class</item>
+        <item>E class</item>
+        <item>GLC</item>
+        <item>GLE</item>
+        <item>G class</item>
+        <item>S class</item>
+        <item>Escape</item>
+        <item>Explorer</item>
+        <item>Expedition</item>
+        <item>F150</item>
+        <item>F250</item>
+        <item>F350</item>
+        <item>F450</item>
+        <item>Sierra 1500</item>
+        <item>Sierra 2500HD</item>
+        <item>Sierra 3500HD</item>
+        <item>Terrain</item>
+        <item>Silverado 1500</item>
+        <item>Silverado 2500HD</item>
+        <item>Silverado 3500HD</item>
+        <item>Equinox</item>
+        <item>Avalanche</item>
+        <item>1500</item>
+        <item>2500HD</item>
+        <item>3500HD</item>
+        <item>Promaster</item>
+        <item>Avalon</item>
+        <item>Camry</item>
+        <item>4Runner</item>
+        <item>Rav4</item>
+        <item>Tacoma</item>
+        <item>Tundra</item>
+    </string-array>
 
     <!--VEHICLE INVENTORY INFO-->
     <string name="brand1">Jeep</string>
@@ -197,16 +249,16 @@
     <!--Customer settings-->
 
     <string name="pref_title_first_name">First Name</string>
-    <string name="pref_default_first_name">John</string>
+    <string name="pref_default_first_name"></string>
 
     <string name="pref_title_last_name">Last Name</string>
-    <string name="pref_default_last_name">Smith</string>
+    <string name="pref_default_last_name"></string>
 
     <string name="pref_title_email">Email Address</string>
-    <string name="pref_default_email">john.smith@example.com</string>
+    <string name="pref_default_email"></string>
 
     <string name="pref_title_phone">Phone Number</string>
-    <string name="pref_default_phone">(555)555-5555</string>
+    <string name="pref_default_phone"></string>
 
     <!--CAR SETTINGS-->
     <string name="pref_header_vehicle">Vehicle Information</string>
@@ -216,10 +268,12 @@
     <string name="pref_title_model">Model</string>
 
     <string name="pref_title_vin">VIN</string>
-    <string name="pref_default_vin"> </string>
+    <string name="pref_default_vin"></string>
 
     <string name="pref_title_km">Kilometers</string>
-    <string name="pref_default_km">9999</string>
+    <string name="pref_default_km"></string>
+
+    <string name="pref_title_delete">Delete Information</string>
 
 
 </resources>

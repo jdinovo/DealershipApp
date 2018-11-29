@@ -1,9 +1,11 @@
 package com.example.jd.dealershipapp;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -42,6 +44,7 @@ public class VehicleInformationFragment extends Fragment {
 
     FragmentManager fm;
     ArrayAdapter<CharSequence> modelAdapter;
+    int clickCount;
 
     private OnFragmentInteractionListener mListener;
 
@@ -82,6 +85,9 @@ public class VehicleInformationFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_vehicle_information, container, false);
 
+        final SharedPreferences sf = PreferenceManager.getDefaultSharedPreferences(getContext());
+        final SharedPreferences.Editor editor = sf.edit();
+
         fm = getActivity().getSupportFragmentManager();
 
         final Spinner brandSpinner = view.findViewById(R.id.brandSpinner);
@@ -103,38 +109,50 @@ public class VehicleInformationFragment extends Fragment {
         modelAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         modelSpinner.setAdapter(modelAdapter);
 
+        brandSpinner.setSelection(brandAdapter.getPosition(sf.getString("pref_brand", "Brand")));
+
+        vinNum.setText(sf.getString("pref_vin", ""));
+        km.setText(sf.getString("pref_km", ""));
+
+        clickCount = 0;
         brandSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    if (view != null) {
+                        if (!brandSpinner.getSelectedItem().toString().equals("Brand")) {
+                            brandSpinner.setBackgroundColor(Color.TRANSPARENT);
+                        }
+                        if (adapterView.getItemAtPosition(i).toString().equals("BMW")) {
+                            modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.bmw_model_array, android.R.layout.simple_spinner_item);
+                        } else if (adapterView.getItemAtPosition(i).toString().equals("Jeep")) {
+                            modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.jeep_model_array, android.R.layout.simple_spinner_item);
+                        } else if (adapterView.getItemAtPosition(i).toString().equals("Mercedes")) {
+                            modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.mercedes_model_array, android.R.layout.simple_spinner_item);
+                        } else if (adapterView.getItemAtPosition(i).toString().equals("Ford")) {
+                            modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.ford_model_array, android.R.layout.simple_spinner_item);
+                        } else if (adapterView.getItemAtPosition(i).toString().equals("GMC")) {
+                            modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.gmc_model_array, android.R.layout.simple_spinner_item);
+                        } else if (adapterView.getItemAtPosition(i).toString().equals("Chevrolet")) {
+                            modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.chev_model_array, android.R.layout.simple_spinner_item);
+                        } else if (adapterView.getItemAtPosition(i).toString().equals("RAM")) {
+                            modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.ram_model_array, android.R.layout.simple_spinner_item);
+                        } else if (adapterView.getItemAtPosition(i).toString().equals("Toyota")) {
+                            modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.toyota_model_array, android.R.layout.simple_spinner_item);
+                        } else {
+                            modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.model_blank_array, android.R.layout.simple_spinner_item);
+                        }
 
-                if(view != null) {
-                    if(!brandSpinner.getSelectedItem().toString().equals("Brand")) {
-                        brandSpinner.setBackgroundColor(Color.TRANSPARENT);
-                    }
-                    if (adapterView.getItemAtPosition(i).toString().equals("BMW")) {
-                        modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.bmw_model_array, android.R.layout.simple_spinner_item);
-                    } else if (adapterView.getItemAtPosition(i).toString().equals("Jeep")) {
-                        modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.jeep_model_array, android.R.layout.simple_spinner_item);
-                    } else if (adapterView.getItemAtPosition(i).toString().equals("Mercedes")) {
-                        modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.mercedes_model_array, android.R.layout.simple_spinner_item);
-                    } else if (adapterView.getItemAtPosition(i).toString().equals("Ford")) {
-                        modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.ford_model_array, android.R.layout.simple_spinner_item);
-                    } else if (adapterView.getItemAtPosition(i).toString().equals("GMC")) {
-                        modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.gmc_model_array, android.R.layout.simple_spinner_item);
-                    } else if (adapterView.getItemAtPosition(i).toString().equals("Chevrolet")) {
-                        modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.chev_model_array, android.R.layout.simple_spinner_item);
-                    } else if (adapterView.getItemAtPosition(i).toString().equals("RAM")) {
-                        modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.ram_model_array, android.R.layout.simple_spinner_item);
-                    } else if (adapterView.getItemAtPosition(i).toString().equals("Toyota")) {
-                        modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.toyota_model_array, android.R.layout.simple_spinner_item);
-                    } else {
-                        modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.model_blank_array, android.R.layout.simple_spinner_item);
+                        modelAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        modelSpinner.setAdapter(modelAdapter);
+
+                        if(clickCount == 0) {
+                            modelSpinner.setSelection(modelAdapter.getPosition(sf.getString("pref_model", "Model")));
+                        }
                     }
 
                     modelAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     modelSpinner.setAdapter(modelAdapter);
                 }
-            }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
@@ -199,7 +217,7 @@ public class VehicleInformationFragment extends Fragment {
 //                getFragmentManager().popBackStackImmediate();
                 FragmentTransaction transaction = fm.beginTransaction();
 
-                transaction.replace(R.id.content, fm.findFragmentByTag("appt"));
+                transaction.replace(R.id.content, new BookAppointmentFragment());
                 transaction.addToBackStack(null);
 
                 transaction.commit();
@@ -235,8 +253,17 @@ public class VehicleInformationFragment extends Fragment {
                     Customer.setVin(vinNum.getText().toString().trim());
                     Customer.setKm(km.getText().toString().trim());
 
+                    editor.putString("pref_brand", Customer.getBrand());
+                    editor.putString("pref_model", Customer.getModel());
+                    editor.putString("pref_vin", Customer.getVin());
+                    editor.putString("pref_km", Customer.getKm());
+
+
+                    editor.apply();
+
                     FragmentTransaction transaction = fm.beginTransaction();
                     Fragment selectedFragment = fm.findFragmentByTag("issue");
+
                     if(selectedFragment == null) {
                         transaction.replace(R.id.content, new IssueInformationFragment(), "issue");
                         transaction.addToBackStack(null);

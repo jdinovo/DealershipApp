@@ -17,6 +17,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.jd.dealershipapp.JavaBean.Employee;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -47,7 +48,7 @@ public class EmployeeCustomRecycleViewAdapter extends RecyclerView.Adapter {
 
         holder1.name.setText(employee.getName());
         holder1.jobTitle.setText(employee.getJobTitle());
-        holder1.image.setImageResource(employee.getImageID());
+        Picasso.with(holder1.view.getContext()).load(employee.getImageID()).into(holder1.image);
         holder1.email.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,10 +87,12 @@ public class EmployeeCustomRecycleViewAdapter extends RecyclerView.Adapter {
             protected TextView jobTitle;
             protected ImageView image;
             protected ImageView email;
+            protected View view;
 
 
             public CustomViewHolder(@NonNull View view) {
                 super(view);
+                this.view = view;
                 this.name = view.findViewById(R.id.employeeName);
                 this.jobTitle = view.findViewById(R.id.employeeJobTitle);
                 this.image = view.findViewById(R.id.employeeImage);
