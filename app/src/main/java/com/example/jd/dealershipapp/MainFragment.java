@@ -1,18 +1,13 @@
 package com.example.jd.dealershipapp;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -35,13 +30,13 @@ public class MainFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public static final int PERMISSION_OPEN_PHONE_APP = 1;
-
     LinearLayout websiteLayout;
     LinearLayout locationLayout;
     LinearLayout facebookLayout;
     LinearLayout twitterLayout;
     LinearLayout callLayout;
+
+    String FACEBOOK_URL = "https://www.facebook.com/christopher.dias.10";
 
     private OnFragmentInteractionListener mListener;
 
@@ -124,21 +119,6 @@ public class MainFragment extends Fragment {
         facebookLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(Intent.ACTION_VIEW);
-//                try {
-//                    getActivity().getPackageManager().getPackageInfo("com.facebook.katana", 0);
-//                     new Intent(Intent.ACTION_VIEW, Uri.parse("fb://facewebmodal/f?href=https://www.facebook.com/someProfile"));
-//                } catch (Exception e) {
-//                    new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/christopher.dias.10")); //catches and opens a url to the desired page
-//                }
-//                if(intent.resolveActivity(getActivity().getPackageManager()) != null) {
-//                    startActivity(intent);
-//                } else {
-//                    Toast.makeText(getContext(),
-//                            "You do not have the correct software", Toast.LENGTH_SHORT).show();
-//                }
-
-                String FACEBOOK_URL = "https://www.facebook.com/christopher.dias.10";
 
                 try {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -183,7 +163,6 @@ public class MainFragment extends Fragment {
                 }
             }
         });
-
 
         return view;
     }
