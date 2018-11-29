@@ -31,7 +31,7 @@
         android:hint="@string/first_name_hint"
         android:inputType="textPersonName"
         android:singleLine="true"
-        android:textColor="@color/color_black"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/body_font_size"
         tools:targetApi="o" />
 

@@ -1,12 +1,15 @@
 package com.example.jd.dealershipapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 
 /**
@@ -26,6 +29,14 @@ public class MainFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    LinearLayout websiteLayout;
+    LinearLayout locationLayout;
+    LinearLayout facebookLayout;
+    LinearLayout twitterLayout;
+    LinearLayout callLayout;
+
+    String FACEBOOK_URL = "https://www.facebook.com/christopher.dias.10";
 
     private OnFragmentInteractionListener mListener;
 
@@ -64,7 +75,96 @@ public class MainFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false);
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
+
+        //Create 4 buttons for each intent
+        websiteLayout = view.findViewById(R.id.websiteLayout);
+        locationLayout = view.findViewById(R.id.locationLayout);
+        facebookLayout = view.findViewById(R.id.facebookLayout);
+        twitterLayout = view.findViewById(R.id.twitterLayout);
+        callLayout = view.findViewById(R.id.callLayout);
+
+        //The website intent opens when it's clicked
+        websiteLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("http://www.stclaircollege.ca"));
+                if(intent.resolveActivity(getActivity().getPackageManager()) != null) {
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(getContext().getApplicationContext(),
+                            "You do not have the correct software", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        //The location intent opens a map to our location
+        locationLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri geoLocation = Uri.parse("geo:0,0?q=42.246598, -83.019553(MAD Program)");
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(geoLocation);
+                if(intent.resolveActivity(getActivity().getPackageManager()) != null) {
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(getContext(),
+                            "You do not have the correct software", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        //The facebook button opens a link to our facebook page
+        facebookLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                try {
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse(FACEBOOK_URL));
+                    if(intent.resolveActivity(getActivity().getPackageManager()) != null) {
+                        startActivity(intent);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Toast.makeText(getContext(),
+                            "You do not have the correct software", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        //The tiwtter button sends the user to our twitter page
+        twitterLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("twitter://user?user_id=298736312"));
+                if(intent.resolveActivity(getActivity().getPackageManager()) != null) {
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(getContext(),
+                            "You do not have the correct software", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        //The call button asks for permission and opens their phone app to call
+        callLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("tel:5199722727"));
+                if(intent.resolveActivity(getActivity().getPackageManager()) != null) {
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(getContext(),
+                            "You do not have the correct software", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -105,4 +205,5 @@ public class MainFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
 }

@@ -118,37 +118,37 @@ public class VehicleInformationFragment extends Fragment {
         brandSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                    if (view != null) {
-                        if (!brandSpinner.getSelectedItem().toString().equals("Brand")) {
-                            brandSpinner.setBackgroundColor(Color.TRANSPARENT);
-                        }
-                        if (adapterView.getItemAtPosition(i).toString().equals("BMW")) {
-                            modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.bmw_model_array, android.R.layout.simple_spinner_item);
-                        } else if (adapterView.getItemAtPosition(i).toString().equals("Jeep")) {
-                            modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.jeep_model_array, android.R.layout.simple_spinner_item);
-                        } else if (adapterView.getItemAtPosition(i).toString().equals("Mercedes")) {
-                            modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.mercedes_model_array, android.R.layout.simple_spinner_item);
-                        } else if (adapterView.getItemAtPosition(i).toString().equals("Ford")) {
-                            modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.ford_model_array, android.R.layout.simple_spinner_item);
-                        } else if (adapterView.getItemAtPosition(i).toString().equals("GMC")) {
-                            modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.gmc_model_array, android.R.layout.simple_spinner_item);
-                        } else if (adapterView.getItemAtPosition(i).toString().equals("Chevrolet")) {
-                            modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.chev_model_array, android.R.layout.simple_spinner_item);
-                        } else if (adapterView.getItemAtPosition(i).toString().equals("RAM")) {
-                            modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.ram_model_array, android.R.layout.simple_spinner_item);
-                        } else if (adapterView.getItemAtPosition(i).toString().equals("Toyota")) {
-                            modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.toyota_model_array, android.R.layout.simple_spinner_item);
-                        } else {
-                            modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.model_blank_array, android.R.layout.simple_spinner_item);
-                        }
-
-                        modelAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                        modelSpinner.setAdapter(modelAdapter);
-
-                        if(clickCount == 0) {
-                            modelSpinner.setSelection(modelAdapter.getPosition(sf.getString("pref_model", "Model")));
-                        }
+                if (view != null) {
+                    if (!brandSpinner.getSelectedItem().toString().equals("Brand")) {
+                        brandSpinner.setBackgroundColor(Color.TRANSPARENT);
                     }
+                    if (adapterView.getItemAtPosition(i).toString().equals("BMW")) {
+                        modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.bmw_model_array, android.R.layout.simple_spinner_item);
+                    } else if (adapterView.getItemAtPosition(i).toString().equals("Jeep")) {
+                        modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.jeep_model_array, android.R.layout.simple_spinner_item);
+                    } else if (adapterView.getItemAtPosition(i).toString().equals("Mercedes")) {
+                        modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.mercedes_model_array, android.R.layout.simple_spinner_item);
+                    } else if (adapterView.getItemAtPosition(i).toString().equals("Ford")) {
+                        modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.ford_model_array, android.R.layout.simple_spinner_item);
+                    } else if (adapterView.getItemAtPosition(i).toString().equals("GMC")) {
+                        modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.gmc_model_array, android.R.layout.simple_spinner_item);
+                    } else if (adapterView.getItemAtPosition(i).toString().equals("Chevrolet")) {
+                        modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.chev_model_array, android.R.layout.simple_spinner_item);
+                    } else if (adapterView.getItemAtPosition(i).toString().equals("RAM")) {
+                        modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.ram_model_array, android.R.layout.simple_spinner_item);
+                    } else if (adapterView.getItemAtPosition(i).toString().equals("Toyota")) {
+                        modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.toyota_model_array, android.R.layout.simple_spinner_item);
+                    } else {
+                        modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.model_blank_array, android.R.layout.simple_spinner_item);
+                    }
+
+                    modelAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    modelSpinner.setAdapter(modelAdapter);
+
+                    if(clickCount == 0) {
+                        modelSpinner.setSelection(modelAdapter.getPosition(sf.getString("pref_model", "Model")));
+                    }
+                }
 
             }
 

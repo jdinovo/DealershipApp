@@ -34,6 +34,8 @@ public class EmployeeCustomRecycleViewAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_row_employee, null);
+        RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        view.setLayoutParams(layoutParams);
         CustomViewHolder viewHolder = new CustomViewHolder(view);
         return viewHolder;
     }
@@ -59,7 +61,7 @@ public class EmployeeCustomRecycleViewAdapter extends RecyclerView.Adapter {
                 if (i.resolveActivity(activity.getPackageManager()) != null) {
                     activity.startActivity(i);
                 } else {
-                    Toast.makeText(activity.getApplicationContext(), "You do not have the correct software", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity.getApplicationContext(), "Please update your device", Toast.LENGTH_SHORT).show();
                 }
             }
         });

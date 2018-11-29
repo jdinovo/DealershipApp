@@ -83,9 +83,9 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                 }
 
             } else {
-                    // For all other preferences, set the summary to the value's
-                    // simple string representation.
-                    preference.setSummary(stringValue);
+                // For all other preferences, set the summary to the value's
+                // simple string representation.
+                preference.setSummary(stringValue);
 
             }
             return true;

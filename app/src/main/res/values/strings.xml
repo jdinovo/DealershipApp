@@ -11,7 +11,7 @@
     <string name="viewInventoryTitle">View Inventory</string>
     <string name="bookAppointmentTitle">Book Appointment</string>
     <string name="meetTheTeamTitle">Meet The Team</string>
-    <string name="visitUsTitle">Visit Us</string>
+    <string name="homepageTitle">Home Page</string>
     <string name="creditsTitle">Credits</string>
 
     <string name="workEmail">info@wheelerdealer.ca</string>
@@ -64,6 +64,13 @@
 
     <string name="submit_button">Submit</string>
     <string name="issueInfoHeader">Appointment</string>
+
+    <!-- MAIN FRAGMENT STRINGS -->
+    <string name="main_visit_website">Visit our website!</string>
+    <string name="main_visit_location">Visit our location!</string>
+    <string name="main_visit_facebook">Visit our Facebook!</string>
+    <string name="main_visit_twitter">Visit our Twitter!</string>
+    <string name="main_call_us">Give us a call!</string>
 
     <string-array name="brand_array">
         <item>Brand</item>

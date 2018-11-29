@@ -5,6 +5,10 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_homepage"
+            android:icon="@drawable/ic_home_page"
+            android:title="@string/homepageTitle" />
+        <item
             android:id="@+id/nav_viewInv"
             android:icon="@drawable/ic_search_inv"
             android:title="@string/viewInventoryTitle" />
@@ -13,23 +17,14 @@
             android:icon="@drawable/ic_book_appt"
             android:title="@string/bookAppointmentTitle" />
 
+        <item
+            android:id="@+id/nav_meetTheTeam"
+            android:icon="@drawable/ic_meet_team"
+            android:title="@string/meetTheTeamTitle" />
+        <item
+            android:id="@+id/nav_credits"
+            android:icon="@drawable/ic_credits"
+            android:title="@string/creditsTitle" />
     </group>
-
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_meetTheTeam"
-                android:icon="@drawable/ic_meet_team"
-                android:title="@string/meetTheTeamTitle" />
-            <item
-                android:id="@+id/nav_visitUs"
-                android:icon="@drawable/ic_visit_us"
-                android:title="@string/visitUsTitle" />
-            <item
-                android:id="@+id/nav_credits"
-                android:icon="@drawable/ic_credits"
-                android:title="@string/creditsTitle" />
-        </menu>
-    </item>
 
 </menu>
