@@ -14,6 +14,9 @@
     <string name="homepageTitle">Home Page</string>
     <string name="creditsTitle">Credits</string>
 
+    <string name="brand">Brand</string>
+    <string name="model">Model</string>
+
     <string name="workEmail">info@wheelerdealer.ca</string>
 
     <string name="first_name">First Name</string>
@@ -48,11 +51,11 @@
 
     <string name="issue_info_header">Appointment Information</string>
     <string name="date_title">Date</string>
-    <string name="date_hint">Appointment Date</string>
+    <string name="date_hint">Pick an appointment date</string>
     <string name="date_empty">Date cannot be left blank</string>
 
     <string name="time_title">Time</string>
-    <string name="time_hint">Appointment Time</string>
+    <string name="time_hint">Pick an appointment time</string>
     <string name="time_empty">Time cannot be left blank</string>
 
     <string name="issue_title">Vehicle Issue</string>

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_dark"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="@dimen/padding"
@@ -24,7 +25,11 @@
         android:id="@+id/brandSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/padding"
+        android:layout_marginTop="@dimen/padding"
+        android:layout_marginRight="@dimen/padding"
         android:layout_weight="1"
+        android:background="@color/color_white"
         android:entries="@array/brand_array"
         android:gravity="center" />
 
@@ -32,7 +37,11 @@
         android:id="@+id/modelSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/padding"
+        android:layout_marginTop="@dimen/padding"
+        android:layout_marginRight="@dimen/padding"
         android:layout_weight="1"
+        android:background="@color/color_white"
         android:entries="@array/model_blank_array"
         android:gravity="center" />
 
@@ -40,9 +49,13 @@
         android:id="@+id/vinInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/padding"
+        android:layout_marginTop="@dimen/padding"
+        android:layout_marginRight="@dimen/padding"
         android:layout_weight="1"
+        android:background="@color/color_white"
         android:ems="10"
-        android:gravity="bottom|center"
+        android:gravity="center"
         android:hint="@string/vinText"
         android:inputType="text"
         android:textColor="@color/color_black"
@@ -52,6 +65,7 @@
         android:id="@+id/vinNumTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/padding"
         android:layout_weight="0"
         android:text="@string/vinText"
         android:textColor="@color/color_black" />
@@ -60,9 +74,13 @@
         android:id="@+id/kmInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/padding"
+        android:layout_marginTop="@dimen/padding"
+        android:layout_marginRight="@dimen/padding"
         android:layout_weight="1"
+        android:background="@color/color_white"
         android:ems="10"
-        android:gravity="bottom|center"
+        android:gravity="center"
         android:hint="@string/kmText"
         android:inputType="number"
         android:textColor="@color/color_black"
@@ -72,6 +90,7 @@
         android:id="@+id/kmTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/padding"
         android:layout_weight="0"
         android:text="@string/kmText"
         android:textColor="@color/color_black" />
@@ -88,6 +107,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:layout_margin="@dimen/form_margin"
+            android:background="@drawable/custom_back_button"
             android:layout_weight="0"
             android:text="@string/back_button" />
 
@@ -96,6 +116,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
+            android:background="@drawable/custom_button"
             android:layout_margin="@dimen/form_margin"
             android:layout_weight="0"
             android:text="@string/next_button" />
