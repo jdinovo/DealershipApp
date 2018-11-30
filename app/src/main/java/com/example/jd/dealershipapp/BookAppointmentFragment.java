@@ -233,7 +233,7 @@ public class BookAppointmentFragment extends Fragment {
                     Customer.setPhone(phone.getText().toString().trim());
 
                     FragmentTransaction transaction = fm.beginTransaction();
-                    Fragment selectedFragment = fm.findFragmentByTag("vehicle");
+                    transaction.setCustomAnimations(R.anim.slide_in, R.anim.slide_out, R.anim.slide_back_in, R.anim.slide_back_out);
 
                     editor.putString("fName", Customer.getFirstName());
                     editor.putString("lName", Customer.getLastName());

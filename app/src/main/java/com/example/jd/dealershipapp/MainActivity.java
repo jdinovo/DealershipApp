@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity
         fm = getSupportFragmentManager();
         if(savedInstanceState == null) {
             FragmentTransaction transaction = fm.beginTransaction();
-            transaction.replace(R.id.content, new MainFragment(), "main");
+            transaction.replace(R.id.content, new MainFragment(), "homepage");
             transaction.commit();
         }
 
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         FragmentTransaction transaction = fm.beginTransaction();
-        //transaction.setCustomAnimations(Insert 2 or 4 animations here);
+        transaction.setCustomAnimations(R.anim.fade_wipe_in, R.anim.fade_wipe_out, R.anim.fade_wipe_back_in, R.anim.fade_wipe_back_out);
 
         if (id == R.id.nav_homepage) {
             Fragment selectedFragment = fm.findFragmentByTag("homepage");

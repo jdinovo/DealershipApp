@@ -120,7 +120,7 @@ public class VehicleInformationFragment extends Fragment {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if (view != null) {
                     if (!brandSpinner.getSelectedItem().toString().equals("Brand")) {
-                        brandSpinner.setBackgroundColor(Color.TRANSPARENT);
+                        brandSpinner.setBackgroundColor(Color.WHITE);
                     }
                     if (adapterView.getItemAtPosition(i).toString().equals("BMW")) {
                         modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.bmw_model_array, android.R.layout.simple_spinner_item);
@@ -162,7 +162,7 @@ public class VehicleInformationFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if(!modelSpinner.getSelectedItem().toString().equals("Model")) {
-                    modelSpinner.setBackgroundColor(Color.TRANSPARENT);
+                    modelSpinner.setBackgroundColor(Color.WHITE);
                 }
             }
 
@@ -214,6 +214,7 @@ public class VehicleInformationFragment extends Fragment {
             public void onClick(View view) {
 //                getFragmentManager().popBackStackImmediate();
                 FragmentTransaction transaction = fm.beginTransaction();
+                transaction.setCustomAnimations(R.anim.slide_back_in, R.anim.slide_back_out);
 
                 transaction.replace(R.id.content, new BookAppointmentFragment());
                 transaction.addToBackStack(null);
@@ -261,7 +262,7 @@ public class VehicleInformationFragment extends Fragment {
 
                     FragmentTransaction transaction = fm.beginTransaction();
                     Fragment selectedFragment = fm.findFragmentByTag("issue");
-
+                    transaction.setCustomAnimations(R.anim.slide_in, R.anim.slide_out, R.anim.slide_back_in, R.anim.slide_back_out);
                     if(selectedFragment == null) {
                         transaction.replace(R.id.content, new IssueInformationFragment(), "issue");
                         transaction.addToBackStack(null);

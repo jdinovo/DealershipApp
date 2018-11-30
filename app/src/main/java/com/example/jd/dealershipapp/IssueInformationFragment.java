@@ -196,12 +196,20 @@ public class IssueInformationFragment extends Fragment implements android.app.Da
             }
         });
 
+        issueText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                issueView.setTextColor(Color.BLACK);
+                issueView.setText(R.string.issue_title);
+            }
+        });
+
         Button backButton = view.findViewById(R.id.backButtonIssue);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = fm.beginTransaction();
-
+                transaction.setCustomAnimations(R.anim.slide_back_in, R.anim.slide_back_out);
                 transaction.replace(R.id.content, new VehicleInformationFragment());
                 transaction.addToBackStack(null);
 
