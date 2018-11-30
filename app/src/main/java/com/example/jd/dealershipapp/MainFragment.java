@@ -89,7 +89,7 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("http://www.stclaircollege.ca"));
+                intent.setData(Uri.parse("https://jdinovo.scweb.ca/wheelerdealer/"));
                 if(intent.resolveActivity(getActivity().getPackageManager()) != null) {
                     startActivity(intent);
                 } else {
@@ -103,7 +103,7 @@ public class MainFragment extends Fragment {
         locationLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri geoLocation = Uri.parse("geo:0,0?q=42.246598, -83.019553(MAD Program)");
+                Uri geoLocation = Uri.parse("geo:0,0?q=42.246598, -83.019553(Wheeler Dealer Dealership)");
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(geoLocation);
                 if(intent.resolveActivity(getActivity().getPackageManager()) != null) {
