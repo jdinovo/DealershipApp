@@ -14,6 +14,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import me.relex.circleindicator.CircleIndicator;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -98,6 +100,9 @@ public class VehicleFragment extends Fragment {
         ViewPager viewPager = view.findViewById(R.id.viewPager);
         viewPager.setAdapter(adapter);
         viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
+        CircleIndicator indicator = view.findViewById(R.id.indicator);
+        indicator.setViewPager(viewPager);
+        adapter.registerDataSetObserver(indicator.getDataSetObserver());
 
         return view;
     }
