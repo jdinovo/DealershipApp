@@ -1,0 +1,40 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- NOTE: Hide buttons to simplify the UI. Users can touch outside the dialog to
+         dismiss it. -->
+    <!-- NOTE: ListPreference's summary should be set to its value by the activity code. -->
+
+
+    <ListPreference
+        android:defaultValue="-1"
+        android:entries="@array/brand_array"
+        android:entryValues="@array/brand_array"
+        android:key="pref_brand"
+        android:title="@string/pref_title_brand" />
+    <ListPreference
+        android:defaultValue="-1"
+        android:entries="@array/pref_model_array"
+        android:entryValues="@array/pref_model_array"
+        android:key="pref_model"
+        android:title="@string/pref_title_model" />
+    <EditTextPreference
+        android:defaultValue="@string/pref_default_vin"
+        android:key="pref_vin"
+        android:inputType="text"
+        android:selectAllOnFocus="true"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:title="@string/pref_title_vin" />
+    <EditTextPreference
+        android:defaultValue="@string/pref_default_km"
+        android:key="pref_km"
+        android:inputType="number"
+        android:selectAllOnFocus="true"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:title="@string/pref_title_km" />
+    <Preference
+        android:icon="@drawable/ic_delete_forever_black_24dp"
+        android:key="deleteVeh"
+        android:title="@string/pref_title_delete" />
+</PreferenceScreen>

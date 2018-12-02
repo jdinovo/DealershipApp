@@ -1,9 +1,11 @@
 package com.example.jd.dealershipapp;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -89,15 +91,24 @@ public class BookAppointmentFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_book_appointment, container, false);
+
+        final SharedPreferences sf = PreferenceManager.getDefaultSharedPreferences(getContext());
+        final SharedPreferences.Editor editor = sf.edit();
+
         fm = getActivity().getSupportFragmentManager();
 
         final EditText fName = view.findViewById(R.id.fName);
+        fName.setText(sf.getString("fName", ""));
         final EditText lName = view.findViewById(R.id.lName);
+        lName.setText(sf.getString("lName", ""));
         final TextView lNameTitle = view.findViewById(R.id.lNameTitle);
         final TextView fNameTitle = view.findViewById(R.id.fNameTitle);
 
+
         email = view.findViewById(R.id.email);
+        email.setText(sf.getString("email", ""));
         phone = view.findViewById(R.id.phone);
+        phone.setText(sf.getString("phone", ""));
         emailTitle = view.findViewById(R.id.emailTitle);
         phoneTitle = view.findViewById(R.id.phoneTitle);
 
@@ -222,16 +233,19 @@ public class BookAppointmentFragment extends Fragment {
                     Customer.setPhone(phone.getText().toString().trim());
 
                     FragmentTransaction transaction = fm.beginTransaction();
-                    Fragment selectedFragment = fm.findFragmentByTag("vehicle");
+                    transaction.setCustomAnimations(R.anim.slide_in, R.anim.slide_out, R.anim.slide_back_in, R.anim.slide_back_out);
 
-                    if(selectedFragment == null) {
-                        transaction.replace(R.id.content, new VehicleInformationFragment(), "vehicle");
-                        transaction.addToBackStack(null);
-                    } else if(!selectedFragment.isVisible()) {
-                        transaction.replace(R.id.content, selectedFragment);
-                        transaction.addToBackStack(null);
-                    }
-                        transaction.commit();
+                    editor.putString("fName", Customer.getFirstName());
+                    editor.putString("lName", Customer.getLastName());
+                    editor.putString("email", Customer.getEmail());
+                    editor.putString("phone", Customer.getPhone());
+
+                    editor.apply();
+
+
+                    transaction.replace(R.id.content, new VehicleInformationFragment(), "vehicle");
+                    transaction.addToBackStack(null);
+                    transaction.commit();
                 }
             }
         });

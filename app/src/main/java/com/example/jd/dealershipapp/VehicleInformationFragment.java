@@ -1,9 +1,11 @@
 package com.example.jd.dealershipapp;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -42,6 +44,7 @@ public class VehicleInformationFragment extends Fragment {
 
     FragmentManager fm;
     ArrayAdapter<CharSequence> modelAdapter;
+    int clickCount;
 
     private OnFragmentInteractionListener mListener;
 
@@ -82,6 +85,9 @@ public class VehicleInformationFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_vehicle_information, container, false);
 
+        final SharedPreferences sf = PreferenceManager.getDefaultSharedPreferences(getContext());
+        final SharedPreferences.Editor editor = sf.edit();
+
         fm = getActivity().getSupportFragmentManager();
 
         final Spinner brandSpinner = view.findViewById(R.id.brandSpinner);
@@ -103,13 +109,18 @@ public class VehicleInformationFragment extends Fragment {
         modelAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         modelSpinner.setAdapter(modelAdapter);
 
+        brandSpinner.setSelection(brandAdapter.getPosition(sf.getString("pref_brand", "Brand")));
+
+        vinNum.setText(sf.getString("pref_vin", ""));
+        km.setText(sf.getString("pref_km", ""));
+
+        clickCount = 0;
         brandSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-                if(view != null) {
-                    if(!brandSpinner.getSelectedItem().toString().equals("Brand")) {
-                        brandSpinner.setBackgroundColor(Color.TRANSPARENT);
+                if (view != null) {
+                    if (!brandSpinner.getSelectedItem().toString().equals("Brand")) {
+                        brandSpinner.setBackgroundColor(Color.WHITE);
                     }
                     if (adapterView.getItemAtPosition(i).toString().equals("BMW")) {
                         modelAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.bmw_model_array, android.R.layout.simple_spinner_item);
@@ -133,6 +144,10 @@ public class VehicleInformationFragment extends Fragment {
 
                     modelAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     modelSpinner.setAdapter(modelAdapter);
+
+                    if(clickCount == 0) {
+                        modelSpinner.setSelection(modelAdapter.getPosition(sf.getString("pref_model", "Model")));
+                    }
                 }
 
             }
@@ -147,7 +162,7 @@ public class VehicleInformationFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if(!modelSpinner.getSelectedItem().toString().equals("Model")) {
-                    modelSpinner.setBackgroundColor(Color.TRANSPARENT);
+                    modelSpinner.setBackgroundColor(Color.WHITE);
                 }
             }
 
@@ -199,8 +214,9 @@ public class VehicleInformationFragment extends Fragment {
             public void onClick(View view) {
 //                getFragmentManager().popBackStackImmediate();
                 FragmentTransaction transaction = fm.beginTransaction();
+                transaction.setCustomAnimations(R.anim.slide_back_in, R.anim.slide_back_out);
 
-                transaction.replace(R.id.content, fm.findFragmentByTag("appt"));
+                transaction.replace(R.id.content, new BookAppointmentFragment());
                 transaction.addToBackStack(null);
 
                 transaction.commit();
@@ -236,8 +252,17 @@ public class VehicleInformationFragment extends Fragment {
                     Customer.setVin(vinNum.getText().toString().trim());
                     Customer.setKm(km.getText().toString().trim());
 
+                    editor.putString("pref_brand", Customer.getBrand());
+                    editor.putString("pref_model", Customer.getModel());
+                    editor.putString("pref_vin", Customer.getVin());
+                    editor.putString("pref_km", Customer.getKm());
+
+
+                    editor.apply();
+
                     FragmentTransaction transaction = fm.beginTransaction();
                     Fragment selectedFragment = fm.findFragmentByTag("issue");
+                    transaction.setCustomAnimations(R.anim.slide_in, R.anim.slide_out, R.anim.slide_back_in, R.anim.slide_back_out);
                     if(selectedFragment == null) {
                         transaction.replace(R.id.content, new IssueInformationFragment(), "issue");
                         transaction.addToBackStack(null);

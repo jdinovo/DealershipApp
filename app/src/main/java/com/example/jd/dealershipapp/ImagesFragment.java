@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.squareup.picasso.Picasso;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -64,8 +66,10 @@ public class ImagesFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_images, container, false);
         ImageView image = view.findViewById(R.id.viewImage);
 
+
         if(mParam1 != 0) {
-            image.setImageResource(mParam1);
+//            image.setImageResource(mParam1);
+            Picasso.with(getContext()).load(mParam1).into(image);
         }
         return view;
     }

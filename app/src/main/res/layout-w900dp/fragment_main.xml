@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <!--WEBSITE INTENT-->
+            <android.support.v7.widget.CardView
+                    android:layout_width="@dimen/cardview_tablet_size"
+                    android:layout_height="@dimen/cardview_tablet_size"
+                    android:layout_margin="5dp"
+                    android:id="@+id/websiteCardview">
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:background="@color/color_white"
+                        android:gravity="center"
+                        android:id="@+id/websiteLayout">
+
+                    <ImageView
+                            android:layout_width="@dimen/image_table_size"
+                            android:layout_height="@dimen/image_table_size"
+                            android:src="@drawable/ic_visit_website"
+                            android:background="@drawable/circlebackgroundorange"
+                            android:padding="10dp"
+                            android:id="@+id/websiteImage"/>
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:layout_marginTop="10dp"
+                            android:text="@string/main_visit_website"
+                            android:textSize="@dimen/text_tablet_size"/>
+                    <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="10dp"
+                            android:background="@color/colorPrimaryDark"/>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <!--MAP INTENT-->
+            <android.support.v7.widget.CardView
+                    android:layout_width="@dimen/cardview_tablet_size"
+                    android:layout_height="@dimen/cardview_tablet_size"
+                    android:layout_margin="5dp"
+                    android:id="@+id/locationCardview">
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:background="@color/color_white"
+                        android:gravity="center"
+                        android:id="@+id/locationLayout">
+
+                    <ImageView
+                            android:layout_width="@dimen/image_table_size"
+                            android:layout_height="@dimen/image_table_size"
+                            android:src="@drawable/ic_visit_us"
+                            android:background="@drawable/circlebackgroundorange"
+                            android:padding="10dp"
+                            android:id="@+id/locationImage"/>
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:layout_marginTop="10dp"
+                            android:text="@string/main_visit_location"
+                            android:textSize="@dimen/text_tablet_size"/>
+                    <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="10dp"
+                            android:background="@color/colorPrimaryDark"/>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+        android:orientation="vertical">
+
+            <!--FACEBOOK INTENT-->
+            <android.support.v7.widget.CardView
+                    android:layout_width="@dimen/cardview_tablet_size"
+                    android:layout_height="@dimen/cardview_tablet_size"
+                    android:layout_margin="5dp"
+                    android:id="@+id/facebookCardview">
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:background="@color/color_white"
+                        android:gravity="center"
+                        android:id="@+id/facebookLayout">
+
+                    <ImageView
+                            android:layout_width="@dimen/image_table_size"
+                            android:layout_height="@dimen/image_table_size"
+                            android:src="@drawable/facebooklogo"
+                            android:background="@drawable/circlebackgroundorange"
+                            android:padding="10dp"
+                            android:id="@+id/facebookImage"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:layout_marginTop="10dp"
+                            android:text="@string/main_visit_facebook"
+                            android:textSize="@dimen/text_tablet_size"/>
+                    <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="10dp"
+                            android:background="@color/colorPrimaryDark"/>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <!--MAP INTENT-->
+            <android.support.v7.widget.CardView
+                    android:layout_width="@dimen/cardview_tablet_size"
+                    android:layout_height="@dimen/cardview_tablet_size"
+                    android:layout_margin="5dp"
+                    android:id="@+id/twitterCardview">
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:background="@color/color_white"
+                        android:gravity="center"
+                        android:id="@+id/twitterLayout">
+
+                    <ImageView
+                            android:layout_width="@dimen/image_table_size"
+                            android:layout_height="@dimen/image_table_size"
+                            android:src="@drawable/twitterlogo"
+                            android:background="@drawable/circlebackgroundorange"
+                            android:padding="10dp"
+                            android:id="@+id/twitterImage"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:layout_marginTop="10dp"
+                            android:text="@string/main_visit_twitter"
+                            android:textSize="@dimen/text_tablet_size"/>
+                    <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="10dp"
+                            android:background="@color/colorPrimaryDark"/>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+
+            <!--CALL INTENT-->
+            <android.support.v7.widget.CardView
+                    android:layout_width="@dimen/cardview_tablet_size"
+                    android:layout_height="@dimen/cardview_tablet_size"
+                    android:layout_margin="5dp"
+                    android:id="@+id/callCardView">
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:background="@color/color_white"
+                        android:gravity="center"
+                        android:id="@+id/callLayout">
+
+                    <ImageView
+                            android:layout_width="@dimen/image_table_size"
+                            android:layout_height="@dimen/image_table_size"
+                            android:src="@drawable/ic_main_menu_call"
+                            android:background="@drawable/circlebackgroundorange"
+                            android:padding="10dp"
+                            android:id="@+id/callImage"/>
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:layout_marginTop="10dp"
+                            android:text="@string/main_call_us"
+                            android:textSize="@dimen/text_tablet_size"/>
+                    <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="10dp"
+                            android:background="@color/colorPrimaryDark"/>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

@@ -1,14 +1,14 @@
 package com.example.jd.dealershipapp;
 
-import android.app.DatePickerDialog;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.provider.CalendarContract;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -17,8 +17,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
-import com.example.jd.dealershipapp.JavaBean.Vehicle;
+import java.util.Calendar;
+
+import static com.example.jd.dealershipapp.IssueInformationFragment.dateDay;
+import static com.example.jd.dealershipapp.IssueInformationFragment.dateMonth;
+import static com.example.jd.dealershipapp.IssueInformationFragment.dateYear;
+import static com.example.jd.dealershipapp.IssueInformationFragment.hour;
+import static com.example.jd.dealershipapp.IssueInformationFragment.min;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
@@ -34,10 +42,14 @@ public class MainActivity extends AppCompatActivity
 
     FragmentManager fm;
 
+    private DrawerLayout drawer;
+    private ActionBarDrawerToggle toggle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -45,27 +57,16 @@ public class MainActivity extends AppCompatActivity
         fm = getSupportFragmentManager();
         if(savedInstanceState == null) {
             FragmentTransaction transaction = fm.beginTransaction();
-            transaction.replace(R.id.content, new MainFragment(), "main");
+            transaction.replace(R.id.content, new MainFragment(), "homepage");
             transaction.commit();
         }
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-
-        });
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer = findViewById(R.id.drawer_layout);
+        toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
 
@@ -95,7 +96,8 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            Intent i = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivity(i);
         }
 
         return super.onOptionsItemSelected(item);
@@ -108,9 +110,20 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         FragmentTransaction transaction = fm.beginTransaction();
-        //transaction.setCustomAnimations(Insert 2 or 4 animations here);
+        transaction.setCustomAnimations(R.anim.fade_wipe_in, R.anim.fade_wipe_out, R.anim.fade_wipe_back_in, R.anim.fade_wipe_back_out);
 
-        if (id == R.id.nav_viewInv) {
+        if (id == R.id.nav_homepage) {
+            Fragment selectedFragment = fm.findFragmentByTag("homepage");
+
+            if(selectedFragment == null) {
+                transaction.replace(R.id.content, new MainFragment(), "homepage");
+                transaction.addToBackStack(null);
+            } else if(!selectedFragment.isVisible()) {
+                transaction.replace(R.id.content, selectedFragment);
+                transaction.addToBackStack(null);
+            }
+
+        } else if (id == R.id.nav_viewInv) {
             Fragment selectedFragment = fm.findFragmentByTag("inv");
 
             if(selectedFragment == null) {
@@ -141,8 +154,6 @@ public class MainActivity extends AppCompatActivity
                 transaction.replace(R.id.content, selectedFragment);
                 transaction.addToBackStack(null);
             }
-        } else if (id == R.id.nav_visitUs) {
-
         } else if (id == R.id.nav_credits) {
             Fragment selectedFragment = fm.findFragmentByTag("credit");
 
@@ -164,6 +175,41 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        switch(requestCode){
+            case IssueInformationFragment.PERMISSION_WRITE_CALENDAR:
+                if(grantResults.length > 0 &&
+                        (grantResults[0] == PackageManager.PERMISSION_GRANTED)){
+                    System.out.println("saved to calendar");
+                    //if we have permission
+                    Calendar beginTime = Calendar.getInstance();
+                    beginTime.set(dateYear, dateMonth, dateDay, hour, min);
+                    Intent i = new Intent(Intent.ACTION_INSERT)
+                            .setData(CalendarContract.Events.CONTENT_URI)
+                            .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, beginTime.getTimeInMillis())
+                            .putExtra(CalendarContract.Events.TITLE, "Vehicle service")
+                            .putExtra(CalendarContract.Events.DESCRIPTION, "Vehicle service appointment")
+                            .putExtra(CalendarContract.Events.EVENT_LOCATION, "Wheeler Dealer Service Center")
+                            .putExtra(CalendarContract.Events.AVAILABILITY, CalendarContract.Events.AVAILABILITY_BUSY);
+
+                    if(i.resolveActivity(this.getPackageManager()) != null) {
+                        startActivity(i);
+                    } else {
+                        Toast.makeText(this, "You do not have the correct software", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else{
+                    //Permission was not granted, we should disable the button
+                }
+                break;
+
+        }
 
     }
 

@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.jd.dealershipapp.JavaBean.Vehicle;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -59,7 +60,8 @@ public class CustomCardViewAdapter extends RecyclerView.Adapter {
         ((CustomViewHolder) holder).model.setText(vehicle.getModel());
         ((CustomViewHolder) holder).year.setText(vehicle.getYear());
         ((CustomViewHolder) holder).price.setText(vehicle.getPrice());
-        ((CustomViewHolder) holder).thumbnail.setImageResource(vehicle.getThumbnailID());
+        Picasso.with(((CustomViewHolder) holder).view.getContext()).load(vehicle.getThumbnailID()).into(((CustomViewHolder) holder).thumbnail);
+        //.setImageResource();
         ((CustomViewHolder) holder).card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -77,6 +79,7 @@ public class CustomCardViewAdapter extends RecyclerView.Adapter {
                 AppCompatActivity activity = (AppCompatActivity) view.getContext();
                 FragmentManager fm = activity.getSupportFragmentManager();
                 FragmentTransaction transaction = fm.beginTransaction();
+                transaction.setCustomAnimations(R.anim.fade_wipe_in, R.anim.fade_wipe_out, R.anim.fade_wipe_back_in, R.anim.fade_wipe_back_out);
                 if(mTwoPane) {
                     transaction.replace(R.id.vehicle_container, vehicleFrag, "vehicle");
                 } else {
@@ -107,6 +110,7 @@ public class CustomCardViewAdapter extends RecyclerView.Adapter {
      *
      */
     class CustomViewHolder extends RecyclerView.ViewHolder {
+        protected View view;
         protected CardView card;
         protected TextView brand;
         protected TextView model;
@@ -125,6 +129,7 @@ public class CustomCardViewAdapter extends RecyclerView.Adapter {
          */
         public CustomViewHolder(View view) {
             super(view);
+            this.view = view;
             this.card = view.findViewById(R.id.card_view);
             this.brand = view.findViewById(R.id.brand);
             this.year = view.findViewById(R.id.year);

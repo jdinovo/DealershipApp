@@ -1,0 +1,15 @@
+<preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- These settings headers are only used on tablets. -->
+
+    <header
+        android:fragment="com.example.jd.dealershipapp.SettingsActivity$CustomerPreferenceFragment"
+        android:icon="@drawable/ic_info_black_24dp"
+        android:title="@string/pref_header_general" />
+
+    <header
+        android:fragment="com.example.jd.dealershipapp.SettingsActivity$VehiclePreferenceFragment"
+        android:icon="@drawable/ic_directions_car_black_24dp"
+        android:title="@string/pref_header_vehicle" />
+
+</preference-headers>
