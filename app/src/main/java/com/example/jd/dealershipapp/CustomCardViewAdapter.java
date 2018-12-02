@@ -79,6 +79,7 @@ public class CustomCardViewAdapter extends RecyclerView.Adapter {
                 AppCompatActivity activity = (AppCompatActivity) view.getContext();
                 FragmentManager fm = activity.getSupportFragmentManager();
                 FragmentTransaction transaction = fm.beginTransaction();
+                transaction.setCustomAnimations(R.anim.fade_wipe_in, R.anim.fade_wipe_out, R.anim.fade_wipe_back_in, R.anim.fade_wipe_back_out);
                 if(mTwoPane) {
                     transaction.replace(R.id.vehicle_container, vehicleFrag, "vehicle");
                 } else {
