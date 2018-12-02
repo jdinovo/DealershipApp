@@ -79,7 +79,7 @@ public class IssueInformationFragment extends Fragment implements android.app.Da
     TextView issueView;
     EditText issueText;
 
-    int hour, min, dateDay, dateMonth, dateYear;
+    static int hour, min, dateDay, dateMonth, dateYear;
 
     public IssueInformationFragment() {
         // Required empty public constructor
