@@ -5,10 +5,9 @@
               android:layout_height="match_parent"
               tools:context=".CreditsFragment" android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycle_view_credits"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="credits frag"/>
+            android:layout_height="match_parent"/>
 
 </LinearLayout>

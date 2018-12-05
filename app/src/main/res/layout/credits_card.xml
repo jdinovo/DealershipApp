@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:credits_card="http://schemas.android.com/tools">
+
+    <android.support.v7.widget.CardView
+            android:id="@+id/credits_cardview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardMaxElevation="10dp"
+            app:cardCornerRadius="10dp"
+            credits_card:cardCornerRadius="@dimen/card_radius">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:id="@+id/creditsLayout"
+                android:background="@color/colorPrimary">
+
+            <TextView
+                    android:text="title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/creditsTitle"
+                    android:textSize="18sp"
+                    android:textAlignment="center"
+                    android:layout_margin="10dp" android:textColor="@color/color_white"/>
+            <TextView
+                    android:text="link"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/creditsLink"
+                    android:layout_margin="10dp"
+                    android:textSize="18sp" android:textColor="@color/color_white"/>
+            <TextView
+                    android:text="desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/creditsDesc"
+                    android:layout_margin="10dp"
+                    android:textSize="18sp"
+                    android:textColor="@color/color_white"/>
+
+        </LinearLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+
+</LinearLayout>

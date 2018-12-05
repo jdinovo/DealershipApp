@@ -36,8 +36,6 @@ public class MainFragment extends Fragment {
     LinearLayout twitterLayout;
     LinearLayout callLayout;
 
-    String FACEBOOK_URL = "https://www.facebook.com/christopher.dias.10";
-
     private OnFragmentInteractionListener mListener;
 
     public MainFragment() {
@@ -122,7 +120,7 @@ public class MainFragment extends Fragment {
 
                 try {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setData(Uri.parse(FACEBOOK_URL));
+                    intent.setData(Uri.parse("www.facebook.com"));
                     if(intent.resolveActivity(getActivity().getPackageManager()) != null) {
                         startActivity(intent);
                     }
@@ -139,7 +137,7 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("twitter://user?user_id=298736312"));
+                        Uri.parse("www.twitter.com"));
                 if(intent.resolveActivity(getActivity().getPackageManager()) != null) {
                     startActivity(intent);
                 } else {

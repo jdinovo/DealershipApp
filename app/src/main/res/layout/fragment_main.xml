@@ -113,7 +113,6 @@
                             android:layout_width="64dp"
                             android:layout_height="64dp"
                             android:src="@drawable/facebooklogo"
-                            android:background="@drawable/circlebackgroundorange"
                             android:padding="10dp" android:id="@+id/facebookImage"/>
 
                     <TextView
@@ -149,7 +148,6 @@
                             android:layout_width="64dp"
                             android:layout_height="64dp"
                             android:src="@drawable/twitterlogo"
-                            android:background="@drawable/circlebackgroundorange"
                             android:padding="10dp" android:id="@+id/twitterImage"/>
 
                     <TextView
