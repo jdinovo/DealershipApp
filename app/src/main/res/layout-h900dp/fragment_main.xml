@@ -114,7 +114,6 @@
                             android:layout_width="@dimen/image_table_size"
                             android:layout_height="@dimen/image_table_size"
                             android:src="@drawable/facebooklogo"
-                            android:background="@drawable/circlebackgroundorange"
                             android:padding="10dp" android:id="@+id/facebookImage"/>
 
                     <TextView
@@ -150,7 +149,6 @@
                             android:layout_width="@dimen/image_table_size"
                             android:layout_height="@dimen/image_table_size"
                             android:src="@drawable/twitterlogo"
-                            android:background="@drawable/circlebackgroundorange"
                             android:padding="10dp" android:id="@+id/twitterImage"/>
 
                     <TextView

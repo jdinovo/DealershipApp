@@ -101,5 +101,4 @@ public class EmployeeCustomRecycleViewAdapter extends RecyclerView.Adapter {
         }
 
 
-
 }
