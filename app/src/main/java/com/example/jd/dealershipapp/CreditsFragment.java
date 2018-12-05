@@ -112,7 +112,7 @@ public class CreditsFragment extends Fragment {
         String twitterAuthor = "Twitter";
         String twitterLogoDesc = "Picture of the Twitter logo";
 
-        String picassoAuthor = "Picasso";
+        String picassoAuthor = "Square";
         String picassoDesc = "A powerful image downloading and caching library for Android systems";
         String balysvAuthor = "Balys Valentukevicius";
         String balysvDesc = "Several android animations for drawers, buttons, pictures and more";
@@ -120,32 +120,32 @@ public class CreditsFragment extends Fragment {
         String ongakeurDesc = "A lightweight indicator that displays the amount of items in a view";
 
 
-        creditList.add(new Credits("Model One", meetTheTeamAuthor, meetTheTeamPicOneDesc));
-        creditList.add(new Credits("Model Two", meetTheTeamAuthor, meetTheTeamPicTwoDesc));
-        creditList.add(new Credits("Model Three", meetTheTeamAuthor, meetTheTeamPicThreeDesc));
+        creditList.add(new Credits("Model One", meetTheTeamAuthor, meetTheTeamPicOneDesc, "https://pixabay.com/en/attractive-beautiful-girl-model-1869761/"));
+        creditList.add(new Credits("Model Two", meetTheTeamAuthor, meetTheTeamPicTwoDesc, "https://pixabay.com/en/beard-face-man-model-mustache-1845166/"));
+        creditList.add(new Credits("Model Three", meetTheTeamAuthor, meetTheTeamPicThreeDesc, "https://pixabay.com/en/beautiful-fashion-grass-model-1844724"));
 
-        creditList.add(new Credits("Jeep Picture", jeepAuthor, jeepPicOneDesc));
-        creditList.add(new Credits("Jeep Picture", jeepAuthor, jeepPicTwoDesc));
-        creditList.add(new Credits("Jeep Picture", jeepAuthor, jeepPicThreeDesc));
+        creditList.add(new Credits("Jeep Picture", jeepAuthor, jeepPicOneDesc, "https://pixabay.com/en/vehicle-car-wheel-jeep-luxury-suv-3196981/"));
+        creditList.add(new Credits("Jeep Picture", jeepAuthor, jeepPicTwoDesc, "https://pixabay.com/en/vehicle-car-transportation-system-3206929/"));
+        creditList.add(new Credits("Jeep Picture", jeepAuthor, jeepPicThreeDesc, "https://pixabay.com/en/tire-track-sand-tread-imprint-2211379/"));
 
-        creditList.add(new Credits("Mustang Picture", mustangAuthor, mustandPicOneDesc));
-        creditList.add(new Credits("Mustang Picture", mustangAuthor, mustandPicTwoDesc));
-        creditList.add(new Credits("Mustang Picture", mustangAuthor, mustandPicThreeDesc));
+        creditList.add(new Credits("Mustang Picture", mustangAuthor, mustandPicOneDesc, "(https://pixabay.com/en/drive-car-red-ford-mustang-natural-1630501/"));
+        creditList.add(new Credits("Mustang Picture", mustangAuthor, mustandPicTwoDesc, "(https://pixabay.com/en/convertible-ford-mustang-1630448/"));
+        creditList.add(new Credits("Mustang Picture", mustangAuthor, mustandPicThreeDesc, "https://pixabay.com/en/red-car-natural-stone-trees-1630523/"));
 
-        creditList.add(new Credits("Yukon Picture", yukonAuthor, yukonPicOneDesc));
-        creditList.add(new Credits("Yukon Picture", yukonAuthor, yukonPicTwoDesc));
-        creditList.add(new Credits("Yukon Picture", yukonAuthor, yukonPicThreeDesc));
+        creditList.add(new Credits("Yukon Picture", yukonAuthor, yukonPicOneDesc, "https://pixabay.com/en/gmc-yukon-grill-headlamp-glass-2831792/"));
+        creditList.add(new Credits("Yukon Picture", yukonAuthor, yukonPicTwoDesc, "https://pixabay.com/en/gmc-yukon-sports-utility-vehicle-suv-2831791/"));
+        creditList.add(new Credits("Yukon Picture", yukonAuthor, yukonPicThreeDesc, "https://pixabay.com/en/gmc-yukon-truck-wheel-rim-tire-2831790/"));
 
-        creditList.add(new Credits("Mini Cooper Picture", miniAuthor, miniPicOneDesc));
-        creditList.add(new Credits("Mini Cooper Picture", miniAuthor, miniPicTwoDesc));
-        creditList.add(new Credits("Mini Cooper Picture", miniAuthor, miniPicThreeDesc));
+        creditList.add(new Credits("Mini Cooper Picture", miniAuthor, miniPicOneDesc, "https://pixabay.com/en/auto-mini-sports-car-vehicle-895720/"));
+        creditList.add(new Credits("Mini Cooper Picture", miniAuthor, miniPicTwoDesc, "https://pixabay.com/en/car-red-mini-cooper-vehicle-1348250/"));
+        creditList.add(new Credits("Mini Cooper Picture", miniAuthor, miniPicThreeDesc, "https://pixabay.com/en/mini-cooper-car-vehicle-mini-3775582/"));
 
-        creditList.add(new Credits("Facebook Logo Picture", fbAuthor, fbLogoDesc));
-        creditList.add(new Credits("Twitter Logo Picture", twitterAuthor, twitterLogoDesc));
+        creditList.add(new Credits("Facebook Logo Picture", fbAuthor, fbLogoDesc, "https://en.facebookbrand.com"));
+        creditList.add(new Credits("Twitter Logo Picture", twitterAuthor, twitterLogoDesc, "https://about.twitter.com/en_us/company/brand-resources.html"));
 
-        creditList.add(new Credits("picasso", picassoAuthor, picassoDesc));
-        creditList.add(new Credits("material-menu", balysvAuthor, balysvDesc));
-        creditList.add(new Credits( "CircleIndicator", ongakeurAuthor, ongakeurDesc));
+        creditList.add(new Credits("picasso", picassoAuthor, picassoDesc, "https://github.com/square/picasso"));
+        creditList.add(new Credits("material-menu", balysvAuthor, balysvDesc, "https://github.com/balysv/material-menu"));
+        creditList.add(new Credits( "CircleIndicator", ongakeurAuthor, ongakeurDesc, "https://github.com/ongakuer/CircleIndicator"));
 
 
         RecyclerView recyclerView = view.findViewById(R.id.recycle_view_credits);
