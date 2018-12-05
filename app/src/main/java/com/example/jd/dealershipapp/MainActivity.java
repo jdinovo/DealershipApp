@@ -205,7 +205,7 @@ public class MainActivity extends AppCompatActivity
                     }
                 }
                 else{
-                    //Permission was not granted, we should disable the button
+                    //Permission was not granted
                 }
                 break;
 

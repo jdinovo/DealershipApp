@@ -20,8 +20,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:clickable="true"
-                android:focusable="true"
+                android:clickable="false"
+                android:focusable="false"
                 android:gravity="center"
                 android:id="@+id/creditsLayout"
                 android:background="@color/colorPrimary">

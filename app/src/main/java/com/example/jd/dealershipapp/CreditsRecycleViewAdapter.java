@@ -48,8 +48,6 @@ public class CreditsRecycleViewAdapter extends RecyclerView.Adapter {
             public void onClick(View v) {
 
                 AppCompatActivity activity = (AppCompatActivity) v.getContext();
-                FragmentManager fm = activity.getSupportFragmentManager();
-                FragmentTransaction transaction = fm.beginTransaction();
 
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse(credit.getCreditsLink()));
@@ -60,7 +58,6 @@ public class CreditsRecycleViewAdapter extends RecyclerView.Adapter {
                             "You do not have the correct software", Toast.LENGTH_SHORT).show();
                 }
 
-                transaction.commit();
 
             }
         });
