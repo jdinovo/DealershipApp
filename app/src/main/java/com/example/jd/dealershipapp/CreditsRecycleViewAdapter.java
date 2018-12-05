@@ -3,8 +3,6 @@ package com.example.jd.dealershipapp;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -40,7 +38,7 @@ public class CreditsRecycleViewAdapter extends RecyclerView.Adapter {
         final Credits credit = credits.get(position);
 
         ((CustomViewHolder) holder).title.setText(credit.getCreditsTitle());
-        ((CustomViewHolder) holder).link.setText(credit.getCreditsLink());
+        ((CustomViewHolder) holder).author.setText(credit.getCreditsAuthor());
         ((CustomViewHolder) holder).desc.setText(credit.getCreditsDesc());
 
         ((CustomViewHolder) holder).card.setOnClickListener(new View.OnClickListener() {
@@ -50,7 +48,7 @@ public class CreditsRecycleViewAdapter extends RecyclerView.Adapter {
                 AppCompatActivity activity = (AppCompatActivity) v.getContext();
 
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse(credit.getCreditsLink()));
+                intent.setData(Uri.parse(credit.getCreditsAuthor()));
                 if(intent.resolveActivity(activity.getPackageManager()) != null) {
                     activity.startActivity(intent);
                 } else {
@@ -81,7 +79,7 @@ public class CreditsRecycleViewAdapter extends RecyclerView.Adapter {
 
         protected CardView card;
         protected TextView title;
-        protected TextView link;
+        protected TextView author;
         protected TextView desc;
         protected View view;
 
@@ -91,7 +89,7 @@ public class CreditsRecycleViewAdapter extends RecyclerView.Adapter {
             this.view = view;
             this.card = view.findViewById(R.id.credits_cardview);
             this.title = view.findViewById(R.id.creditsTitle);
-            this.link = view.findViewById(R.id.creditsLink);
+            this.author = view.findViewById(R.id.creditsAuthor);
             this.desc = view.findViewById(R.id.creditsDesc);
         }
     }

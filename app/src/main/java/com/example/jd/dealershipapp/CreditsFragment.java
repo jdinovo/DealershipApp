@@ -39,7 +39,6 @@ public class CreditsFragment extends Fragment {
     private String mParam2;
 
     RecyclerView list;
-    private ArrayList<Credits> credits;
 
     private OnFragmentInteractionListener mListener;
 
@@ -83,74 +82,71 @@ public class CreditsFragment extends Fragment {
         final ArrayList<Credits> creditList = new ArrayList<>();
 
         // Strings for the links
-        String meetTheTeamPicOneLink = "https://pixabay.com/en/attractive-beautiful-girl-model-1869761/";
-        String meetTheTeamPicTwoLink = "https://pixabay.com/en/beard-face-man-model-mustache-1845166/";
-        String meetTheTeamPicThreeLink = "https://pixabay.com/en/beautiful-fashion-grass-model-1844724/";
+        String meetTheTeamAuthor = "Pixabay";
         String meetTheTeamPicOneDesc = "Picture of a model";
         String meetTheTeamPicTwoDesc = "Picture of a bearded model";
         String meetTheTeamPicThreeDesc = "Picture of a model";
 
-        String jeepPicOneLink = "https://pixabay.com/en/vehicle-car-wheel-jeep-luxury-suv-3196981/";
-        String jeepPicTwoLink = "https://pixabay.com/en/tire-track-sand-tread-imprint-2211379/";
-        String jeepPicThreeLink = "https://pixabay.com/en/vehicle-car-transportation-system-3206929/";
+        String jeepAuthor = "Pixabay";
         String jeepPicOneDesc = "Picture of a black Jeep";
         String jeepPicTwoDesc = "Picture of a black Jeep";
         String jeepPicThreeDesc = "Picture of tire markings in the mud from a Jeep";
 
-        String mustangPicOneLink = "https://pixabay.com/en/drive-car-red-ford-mustang-natural-1630501/";
-        String mustangPicTwoLink = "https://pixabay.com/en/convertible-ford-mustang-1630448/";
-        String mustangPicThreeLink = "https://pixabay.com/en/red-car-natural-stone-trees-1630523/";
+        String mustangAuthor = "Pixabay";
         String mustandPicOneDesc = "Picture of the front of a red Mustang";
         String mustandPicTwoDesc = "Picture of the side of a red convertible Mustang with the top down and the doors open";
         String mustandPicThreeDesc = "Picture of a red Mustang at the edge of a cliff";
 
-        String yukonPicOneLink = "https://pixabay.com/en/gmc-yukon-grill-headlamp-glass-2831792/";
-        String yukonPicTwoLink = "https://pixabay.com/en/gmc-yukon-sports-utility-vehicle-suv-2831791/";
-        String yukonPicThreeLink = "https://pixabay.com/en/gmc-yukon-truck-wheel-rim-tire-2831790/";
+        String yukonAuthor = "Pixabay";
         String yukonPicOneDesc = "Picture of the side of a white Yukon";
         String yukonPicTwoDesc = "Picture of the front grille of a white Yukon";
         String yukonPicThreeDesc = "Picture of chrome rims on a white Yukon";
 
-        String miniPicOneLink = "https://pixabay.com/en/auto-mini-sports-car-vehicle-895720/";
-        String miniPicTwoLink = "https://pixabay.com/en/car-red-mini-cooper-vehicle-1348250/";
-        String miniPicThreeLink = "https://pixabay.com/en/mini-cooper-car-vehicle-mini-3775582/";
+        String miniAuthor = "Pixabay";
         String miniPicOneDesc = "Picture of the front hood of a red Mini Cooper";
         String miniPicTwoDesc = "Picture of the side of a red Mini Cooper";
         String miniPicThreeDesc = "Picture of the steering wheel with a Mini Cooper logo in the middle";
 
-        String fbLogoLink = "https://en.facebookbrand.com";
-        String twitterLogoLink = "https://about.twitter.com/en_us/company/brand-resources.html";
+        String fbAuthor = "Facebook";
         String fbLogoDesc = "Picture of the Facebook logo";
+        String twitterAuthor = "Twitter";
         String twitterLogoDesc = "Picture of the Twitter logo";
 
-        String wdlogoLink = "https://commons.wikimedia.org/wiki/File:Wheeler_Dealers.svg";
-        String wdlogoDesc = "Picture of a logo with the letters W and D";
+        String picassoAuthor = "Picasso";
+        String picassoDesc = "A powerful image downloading and caching library for Android systems";
+        String balysvAuthor = "Balys Valentukevicius";
+        String balysvDesc = "Several android animations for drawers, buttons, pictures and more";
+        String ongakeurAuthor = "Ongakeur";
+        String ongakeurDesc = "A lightweight indicator that displays the amount of items in a view";
 
 
-        creditList.add(new Credits("Model One", meetTheTeamPicOneLink, meetTheTeamPicOneDesc));
-        creditList.add(new Credits("Model Two", meetTheTeamPicTwoLink, meetTheTeamPicTwoDesc));
-        creditList.add(new Credits("Model Three", meetTheTeamPicThreeLink, meetTheTeamPicThreeDesc));
+        creditList.add(new Credits("Model One", meetTheTeamAuthor, meetTheTeamPicOneDesc));
+        creditList.add(new Credits("Model Two", meetTheTeamAuthor, meetTheTeamPicTwoDesc));
+        creditList.add(new Credits("Model Three", meetTheTeamAuthor, meetTheTeamPicThreeDesc));
 
-        creditList.add(new Credits("Jeep Picture", jeepPicOneLink, jeepPicOneDesc));
-        creditList.add(new Credits("Jeep Picture", jeepPicTwoLink, jeepPicTwoDesc));
-        creditList.add(new Credits("Jeep Picture", jeepPicThreeLink, jeepPicThreeDesc));
+        creditList.add(new Credits("Jeep Picture", jeepAuthor, jeepPicOneDesc));
+        creditList.add(new Credits("Jeep Picture", jeepAuthor, jeepPicTwoDesc));
+        creditList.add(new Credits("Jeep Picture", jeepAuthor, jeepPicThreeDesc));
 
-        creditList.add(new Credits("Mustang Picture", mustangPicOneLink, mustandPicOneDesc));
-        creditList.add(new Credits("Mustang Picture", mustangPicTwoLink, mustandPicTwoDesc));
-        creditList.add(new Credits("Mustang Picture", mustangPicThreeLink, mustandPicThreeDesc));
+        creditList.add(new Credits("Mustang Picture", mustangAuthor, mustandPicOneDesc));
+        creditList.add(new Credits("Mustang Picture", mustangAuthor, mustandPicTwoDesc));
+        creditList.add(new Credits("Mustang Picture", mustangAuthor, mustandPicThreeDesc));
 
-        creditList.add(new Credits("Yukon Picture", yukonPicOneLink, yukonPicOneDesc));
-        creditList.add(new Credits("Yukon Picture", yukonPicTwoLink, yukonPicTwoDesc));
-        creditList.add(new Credits("Yukon Picture", yukonPicThreeLink, yukonPicThreeDesc));
+        creditList.add(new Credits("Yukon Picture", yukonAuthor, yukonPicOneDesc));
+        creditList.add(new Credits("Yukon Picture", yukonAuthor, yukonPicTwoDesc));
+        creditList.add(new Credits("Yukon Picture", yukonAuthor, yukonPicThreeDesc));
 
-        creditList.add(new Credits("Mini Cooper Picture", miniPicOneLink, miniPicOneDesc));
-        creditList.add(new Credits("Mini Cooper Picture", miniPicTwoLink, miniPicTwoDesc));
-        creditList.add(new Credits("Mini Cooper Picture", miniPicThreeLink, miniPicThreeDesc));
+        creditList.add(new Credits("Mini Cooper Picture", miniAuthor, miniPicOneDesc));
+        creditList.add(new Credits("Mini Cooper Picture", miniAuthor, miniPicTwoDesc));
+        creditList.add(new Credits("Mini Cooper Picture", miniAuthor, miniPicThreeDesc));
 
-        creditList.add(new Credits("Facebook Logo Picture", fbLogoLink, fbLogoDesc));
-        creditList.add(new Credits("Twitter Logo Picture", twitterLogoLink, twitterLogoDesc));
+        creditList.add(new Credits("Facebook Logo Picture", fbAuthor, fbLogoDesc));
+        creditList.add(new Credits("Twitter Logo Picture", twitterAuthor, twitterLogoDesc));
 
-        creditList.add(new Credits("WD Logo Picture", wdlogoLink, wdlogoDesc));
+        creditList.add(new Credits("picasso", picassoAuthor, picassoDesc));
+        creditList.add(new Credits("material-menu", balysvAuthor, balysvDesc));
+        creditList.add(new Credits( "CircleIndicator", ongakeurAuthor, ongakeurDesc));
+
 
         RecyclerView recyclerView = view.findViewById(R.id.recycle_view_credits);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

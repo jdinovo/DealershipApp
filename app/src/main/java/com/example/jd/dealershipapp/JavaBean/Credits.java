@@ -14,7 +14,7 @@ package com.example.jd.dealershipapp.JavaBean;
 public class Credits {
 
     private String creditsTitle;
-    private String creditsLink;
+    private String creditsAuthor;
     private String creditsDesc;
 
     /**
@@ -28,9 +28,9 @@ public class Credits {
 
     }
 
-    public Credits(String creditsTitle, String creditsLink, String creditsDesc) {
+    public Credits(String creditsTitle, String creditsAuthor, String creditsDesc) {
         this.creditsTitle = creditsTitle;
-        this.creditsLink = creditsLink;
+        this.creditsAuthor = creditsAuthor;
         this.creditsDesc = creditsDesc;
     }
 
@@ -52,12 +52,12 @@ public class Credits {
         this.creditsTitle = creditsTitle;
     }
 
-    public String getCreditsLink() {
-        return creditsLink;
+    public String getCreditsAuthor() {
+        return creditsAuthor;
     }
 
-    public void setCreditsLink(String creditsLink) {
-        this.creditsLink = creditsLink;
+    public void setCreditsAuthor(String creditsAuthor) {
+        this.creditsAuthor = creditsAuthor;
     }
 
     public String getCreditsDesc() {
