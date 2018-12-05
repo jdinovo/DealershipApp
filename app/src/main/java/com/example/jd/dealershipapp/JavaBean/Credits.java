@@ -16,6 +16,7 @@ public class Credits {
     private String creditsTitle;
     private String creditsAuthor;
     private String creditsDesc;
+    private String creditsLink;
 
     /**
      * @author Chris Dias
@@ -28,10 +29,11 @@ public class Credits {
 
     }
 
-    public Credits(String creditsTitle, String creditsAuthor, String creditsDesc) {
+    public Credits(String creditsTitle, String creditsAuthor, String creditsDesc, String creditsLink) {
         this.creditsTitle = creditsTitle;
         this.creditsAuthor = creditsAuthor;
         this.creditsDesc = creditsDesc;
+        this.creditsLink = creditsLink;
     }
 
 
@@ -68,4 +70,11 @@ public class Credits {
         this.creditsDesc = creditsDesc;
     }
 
+    public String getCreditsLink() {
+        return creditsLink;
+    }
+
+    public void setCreditsLink(String creditsLink) {
+        this.creditsLink = creditsLink;
+    }
 }

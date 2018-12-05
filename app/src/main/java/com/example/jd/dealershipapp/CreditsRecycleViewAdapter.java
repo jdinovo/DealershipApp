@@ -48,7 +48,7 @@ public class CreditsRecycleViewAdapter extends RecyclerView.Adapter {
                 AppCompatActivity activity = (AppCompatActivity) v.getContext();
 
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse(credit.getCreditsAuthor()));
+                intent.setData(Uri.parse(credit.getCreditsLink()));
                 if(intent.resolveActivity(activity.getPackageManager()) != null) {
                     activity.startActivity(intent);
                 } else {

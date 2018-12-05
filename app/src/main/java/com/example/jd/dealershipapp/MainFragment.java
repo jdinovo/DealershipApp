@@ -118,15 +118,12 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                try {
-                    Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setData(Uri.parse("www.facebook.com"));
-                    if(intent.resolveActivity(getActivity().getPackageManager()) != null) {
-                        startActivity(intent);
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    Toast.makeText(getContext(),
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("https://www.facebook.com"));
+                if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(getContext().getApplicationContext(),
                             "You do not have the correct software", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -136,12 +133,12 @@ public class MainFragment extends Fragment {
         twitterLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("www.twitter.com"));
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("https://www.twitter.com"));
                 if(intent.resolveActivity(getActivity().getPackageManager()) != null) {
                     startActivity(intent);
                 } else {
-                    Toast.makeText(getContext(),
+                    Toast.makeText(getContext().getApplicationContext(),
                             "You do not have the correct software", Toast.LENGTH_SHORT).show();
                 }
             }
