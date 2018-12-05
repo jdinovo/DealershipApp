@@ -4,40 +4,56 @@ An android application that allows users to view details about a car dealership,
 
 ![Wheeler Dealer](https://github.com/jdinovo/DealershipApp/blob/master/screenshots/main.png)
 
+
 ## Features
 
 ### 1. Navigation Side-Bar
+
+
+- Allows users to easily navigate our application
 
 ![NavBar](https://github.com/jdinovo/DealershipApp/blob/master/screenshots/nav.png)
 
 
 ### 2. View Dealership Inventory
 
+
 - Users can click on any vehicles they wish to see
+
 ![View Inventory](https://github.com/jdinovo/DealershipApp/blob/master/screenshots/viewInv.png)
 
+
 - Users can slide image to see more and scroll page to read more details
+
 ![Vehicle Details](https://github.com/jdinovo/DealershipApp/blob/master/screenshots/vehicle.png)
 
 
 ### 3. Booking Appointment
 
+
 - Users are asked for their contact information
+
 ![Contact Information](https://github.com/jdinovo/DealershipApp/blob/master/screenshots/appointment1.png)
 
+
 - Users are asked for their vehicle information
+
 ![Wheeler Dealer](https://github.com/jdinovo/DealershipApp/blob/master/screenshots/appointment2.png)
+
 
 - Users are asked to select a date and time, and give a description of their issue and/or work they would like done to their vehicle
 
 ![Wheeler Dealer](https://github.com/jdinovo/DealershipApp/blob/master/screenshots/appointment3.png)
 
+
 - All information is saved and can be editted/deleted in the application's settings menu
+
 
 
 ## Contributors:
 - [James DiNovo](https://github.com/jdinovo)
 - [Chris Dias](https://github.com/chrisdias96)
+
 
 
 ## Credits:
@@ -63,10 +79,12 @@ An android application that allows users to view details about a car dealership,
 18. [Model 3](https://pixabay.com/en/beautiful-fashion-grass-model-1844724/) 
 
 
+
 ### APIs: 
  1. [Picasso](https://github.com/square/picasso) 
  2. [Material Menu](https://github.com/balysv/material-menu)
  3. [Circle Indicator](https://github.com/ongakuer/CircleIndicator)
     
+
 
 :copyright: 2018 JC, Inc. All rights reserved. 
