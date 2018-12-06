@@ -18,13 +18,14 @@
 
         <android.support.v4.view.ViewPager
             android:id="@+id/viewPager"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_width="0dp"
+            android:layout_height="350dp"
             android:layout_gravity="center"
             android:background="@color/colorPrimary"
-            android:paddingLeft="@dimen/padding"
+            android:paddingStart="@dimen/padding"
             android:paddingTop="@dimen/padding"
-            android:paddingRight="@dimen/padding"
+            android:paddingEnd="@dimen/padding"
+            app:layout_constraintBottom_toTopOf="@+id/vehicleBrand"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -35,27 +36,26 @@
             android:id="@+id/indicator"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="@+id/viewPager" />
 
         <TextView
             android:id="@+id/vehicleBrand"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:background="@color/colorPrimary"
             android:gravity="center"
             android:text="Brand"
             android:textColor="@color/color_white"
             android:textSize="@dimen/heading_font_size"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/vehicleModel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/indicator" />
 
         <TextView
             android:id="@+id/vehicleModel"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             android:gravity="center"
@@ -63,13 +63,14 @@
             android:textColor="@color/color_white"
             android:textSize="@dimen/heading_font_size"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/vehicleYear"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/vehicleBrand" />
 
         <TextView
             android:id="@+id/vehicleYear"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             android:gravity="center"
@@ -77,13 +78,14 @@
             android:textColor="@color/color_white"
             android:textSize="@dimen/heading_font_size"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/vehiclePrice"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/vehicleModel" />
 
         <TextView
             android:id="@+id/vehiclePrice"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             android:gravity="center"
@@ -92,18 +94,20 @@
             android:textColor="@color/color_white"
             android:textSize="@dimen/heading_font_size"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/vehicleDesc"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/vehicleYear" />
 
         <TextView
             android:id="@+id/vehicleDesc"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:padding="@dimen/padding"
             android:text="Description"
             android:textColor="@color/color_black"
             android:textSize="@dimen/body_font_size"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/vehiclePrice" />
