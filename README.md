@@ -2,7 +2,9 @@
 
 An android application that allows users to view details about a car dealership, the vehicles it has for sale, its staff, ect. and book appointments to have their vehicle serviced.
 
- ![Wheeler Dealer](https://github.com/jdinovo/DealershipApp/blob/master/screenshots/main.png)
+<p align="center">
+  <img width="320" height="570" src="https://github.com/jdinovo/DealershipApp/blob/master/screenshots/main.png">
+</p>
 
 
 ## Features
@@ -12,7 +14,9 @@ An android application that allows users to view details about a car dealership,
 
 - Allows users to easily navigate our application
 
- ![NavBar](https://github.com/jdinovo/DealershipApp/blob/master/screenshots/nav.png)
+<p align="center">
+  <img width="320" height="570" src="https://github.com/jdinovo/DealershipApp/blob/master/screenshots/nav.png">
+</p>
 
 
 ### 2. View Dealership Inventory
@@ -20,31 +24,36 @@ An android application that allows users to view details about a car dealership,
 
 - Users can click on any vehicles they wish to see
 
- ![View Inventory](https://github.com/jdinovo/DealershipApp/blob/master/screenshots/viewInv.png)
-
+<p align="center">
+  <img width="320" height="570" src="https://github.com/jdinovo/DealershipApp/blob/master/screenshots/viewInv.png">
+</p>
 
 - Users can slide image to see more and scroll page to read more details
 
- ![Vehicle Details](https://github.com/jdinovo/DealershipApp/blob/master/screenshots/vehicle.png)
-
+<p align="center">
+  <img width="320" height="570" src="https://github.com/jdinovo/DealershipApp/blob/master/screenshots/vehicle.png">
+</p>
 
 ### 3. Booking Appointment
 
 
 - Users are asked for their contact information
 
- ![Contact Information](https://github.com/jdinovo/DealershipApp/blob/master/screenshots/appointment1.png)
-
+<p align="center">
+  <img width="320" height="570" src="https://github.com/jdinovo/DealershipApp/blob/master/screenshots/appointment1.png">
+</p>
 
 - Users are asked for their vehicle information
 
- ![Wheeler Dealer](https://github.com/jdinovo/DealershipApp/blob/master/screenshots/appointment2.png)
-
+<p align="center">
+  <img width="320" height="570" src="https://github.com/jdinovo/DealershipApp/blob/master/screenshots/appointment2.png">
+</p>
 
 - Users are asked to select a date and time, and give a description of their issue and/or work they would like done to their vehicle
 
- ![Wheeler Dealer](https://github.com/jdinovo/DealershipApp/blob/master/screenshots/appointment3.png)
-
+<p align="center">
+  <img width="320" height="570" src="https://github.com/jdinovo/DealershipApp/blob/master/screenshots/appointment3.png">
+</p>
 
 - All information is saved and can be editted/deleted in the application's settings menu
 
