@@ -122,14 +122,14 @@ public class CreditsFragment extends Fragment {
 
         creditList.add(new Credits("Model One", meetTheTeamAuthor, meetTheTeamPicOneDesc, "https://pixabay.com/en/attractive-beautiful-girl-model-1869761/"));
         creditList.add(new Credits("Model Two", meetTheTeamAuthor, meetTheTeamPicTwoDesc, "https://pixabay.com/en/beard-face-man-model-mustache-1845166/"));
-        creditList.add(new Credits("Model Three", meetTheTeamAuthor, meetTheTeamPicThreeDesc, "https://pixabay.com/en/beautiful-fashion-grass-model-1844724"));
+        creditList.add(new Credits("Model Three", meetTheTeamAuthor, meetTheTeamPicThreeDesc, "https://pixabay.com/en/beautiful-fashion-grass-model-1844724/"));
 
         creditList.add(new Credits("Jeep Picture", jeepAuthor, jeepPicOneDesc, "https://pixabay.com/en/vehicle-car-wheel-jeep-luxury-suv-3196981/"));
         creditList.add(new Credits("Jeep Picture", jeepAuthor, jeepPicTwoDesc, "https://pixabay.com/en/vehicle-car-transportation-system-3206929/"));
         creditList.add(new Credits("Jeep Picture", jeepAuthor, jeepPicThreeDesc, "https://pixabay.com/en/tire-track-sand-tread-imprint-2211379/"));
 
-        creditList.add(new Credits("Mustang Picture", mustangAuthor, mustandPicOneDesc, "(https://pixabay.com/en/drive-car-red-ford-mustang-natural-1630501/"));
-        creditList.add(new Credits("Mustang Picture", mustangAuthor, mustandPicTwoDesc, "(https://pixabay.com/en/convertible-ford-mustang-1630448/"));
+        creditList.add(new Credits("Mustang Picture", mustangAuthor, mustandPicOneDesc, "https://pixabay.com/en/drive-car-red-ford-mustang-natural-1630501/"));
+        creditList.add(new Credits("Mustang Picture", mustangAuthor, mustandPicTwoDesc, "https://pixabay.com/en/convertible-ford-mustang-1630448/"));
         creditList.add(new Credits("Mustang Picture", mustangAuthor, mustandPicThreeDesc, "https://pixabay.com/en/red-car-natural-stone-trees-1630523/"));
 
         creditList.add(new Credits("Yukon Picture", yukonAuthor, yukonPicOneDesc, "https://pixabay.com/en/gmc-yukon-grill-headlamp-glass-2831792/"));

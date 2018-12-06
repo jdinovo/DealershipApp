@@ -119,7 +119,7 @@ public class MainFragment extends Fragment {
             public void onClick(View v) {
 
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("https://www.facebook.com"));
+                intent.setData(Uri.parse("https://www.facebook.com/Wheeler-Dealer-Dealership-345510279611101/"));
                 if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
                     startActivity(intent);
                 } else {
@@ -134,7 +134,7 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("https://www.twitter.com"));
+                intent.setData(Uri.parse("https://twitter.com/wheeler50033681"));
                 if(intent.resolveActivity(getActivity().getPackageManager()) != null) {
                     startActivity(intent);
                 } else {
