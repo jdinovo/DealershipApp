@@ -36,8 +36,6 @@ public class MainFragment extends Fragment {
     LinearLayout twitterLayout;
     LinearLayout callLayout;
 
-    String FACEBOOK_URL = "https://www.facebook.com/christopher.dias.10";
-
     private OnFragmentInteractionListener mListener;
 
     public MainFragment() {
@@ -120,15 +118,12 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                try {
-                    Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setData(Uri.parse(FACEBOOK_URL));
-                    if(intent.resolveActivity(getActivity().getPackageManager()) != null) {
-                        startActivity(intent);
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    Toast.makeText(getContext(),
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("https://www.facebook.com/Wheeler-Dealer-Dealership-345510279611101/"));
+                if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(getContext().getApplicationContext(),
                             "You do not have the correct software", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -138,12 +133,12 @@ public class MainFragment extends Fragment {
         twitterLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("twitter://user?user_id=298736312"));
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("https://twitter.com/wheeler50033681"));
                 if(intent.resolveActivity(getActivity().getPackageManager()) != null) {
                     startActivity(intent);
                 } else {
-                    Toast.makeText(getContext(),
+                    Toast.makeText(getContext().getApplicationContext(),
                             "You do not have the correct software", Toast.LENGTH_SHORT).show();
                 }
             }

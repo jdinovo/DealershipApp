@@ -79,13 +79,18 @@ public class MeetTheTeamFragment extends Fragment {
         imagesOfEmployees.add(R.drawable.pic2);
         imagesOfEmployees.add(R.drawable.pic3);
 
+        String rebeccaName = "Rebecca";
         String[] rebeccaEmail = {"rebecca@wheelerdealer.ca"};
+
+        String jakeName = "Jake";
         String[] jakeEmail = {"jake@wheelerdealer.ca"};
+
+        String melanieName = "Melanie";
         String[] melanieEmail = {"melanie@wheelerdealer.ca"};
 
-        personList.add(new Employee("Rebecca", "Receptionist", R.drawable.pic1, rebeccaEmail));
-        personList.add(new Employee("Jake", "Mechanic", R.drawable.pic2, jakeEmail));
-        personList.add(new Employee("Melanie", "Sales Representative", R.drawable.pic3, melanieEmail));
+        personList.add(new Employee(rebeccaName, "Receptionist", R.drawable.pic1, rebeccaEmail));
+        personList.add(new Employee(jakeName, "Mechanic", R.drawable.pic2, jakeEmail));
+        personList.add(new Employee(melanieName, "Sales Representative", R.drawable.pic3, melanieEmail));
 
         RecyclerView recyclerView = view.findViewById(R.id.recycle_view_employee);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
