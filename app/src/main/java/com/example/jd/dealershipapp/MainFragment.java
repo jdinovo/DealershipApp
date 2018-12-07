@@ -119,7 +119,7 @@ public class MainFragment extends Fragment {
             public void onClick(View v) {
 
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("https://www.facebook.com/Wheeler-Dealer-Dealership-345510279611101/"));
+                intent.setData(Uri.parse("https://www.facebook.com/Wheeler-Dealer-Dealership-212796052968184/"));
                 if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
                     startActivity(intent);
                 } else {
