@@ -1,4 +1,6 @@
 # Wheeler Dealer
+[![DOWNLOADS](https://img.shields.io/github/release/jdinovo/dealershipapp.svg?label=Download&style=plastic)](https://github.com/jdinovo/DealershipApp/releases/latest)
+[![API](https://img.shields.io/badge/API-24%2B-brightgreen.svg?style=plastic)](https://android-arsenal.com/api?level=24)
 
 An android application that allows users to view details about a car dealership, the vehicles it has for sale, its staff, ect. and book appointments to have their vehicle serviced.
 
